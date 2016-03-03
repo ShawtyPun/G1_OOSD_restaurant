@@ -3,19 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package oosd_restaurant;
-//Hello World
+package mainrestaurant;
 /**
  *
  * @author lullaby
  */
-public class OOSD_Restaurant {
+public class MainRestaurant {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Main m1 = new Main();
+        m1.setJFrame(m1);
+        m1.getJFrame().setVisible(true);
     }
-    
 }
