@@ -9,7 +9,7 @@ package mainrestaurant;
  * @author lullaby
  */
 public class MainRestaurant {
-
+//Test
     /**
      * @param args the command line arguments
      */
