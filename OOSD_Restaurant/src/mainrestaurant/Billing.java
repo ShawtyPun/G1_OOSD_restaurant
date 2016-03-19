@@ -272,7 +272,7 @@ public class Billing extends javax.swing.JFrame {
     int line;
     int total;
     private void cbbTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbTableActionPerformed
-        CSDbDelegate db = new CSDbDelegate("cs14sitkmutt.me", "3306", "CSC105_G2", "CSC105_G2", "CSC105_G2");
+        CSDbDelegate db = new CSDbDelegate("csprog-in.sit.kmutt.ac.th", "3306", "CSC105_G2", "csc105_2014", "csc105");
         System.out.println(db.connect());
         String table = "SELECT * FROM RESTAURANT_Keeper WHERE TABLENUM = " + cbbTable.getSelectedItem().toString();
 
@@ -313,7 +313,8 @@ public class Billing extends javax.swing.JFrame {
                     JOptionPane.YES_NO_OPTION,
                     JOptionPane.ERROR_MESSAGE);
             if (answer == JOptionPane.YES_OPTION) {
-                CSDbDelegate db = new CSDbDelegate("cs14sitkmutt.me", "3306", "CSC105_G2", "CSC105_G2", "CSC105_G2");
+                CSDbDelegate db = new CSDbDelegate("csprog-in.sit.kmutt.ac.th", "3306", "CSC105_G2", "csc105_2014", "csc105");
+                //CSDbDelegate db = new CSDbDelegate("cs14sitkmutt.me", "3306", "CSC105_G2", "CSC105_G2", "CSC105_G2");
                 System.out.println(db.connect());
                 String use = "UPDATE `RESTAURANT_Tables` SET `isUsing`= 0 WHERE TABLENUM = " + cbbTable.getSelectedItem().toString();
                 db.executeQuery(use);
