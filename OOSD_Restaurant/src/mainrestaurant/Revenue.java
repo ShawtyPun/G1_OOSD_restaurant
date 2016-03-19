@@ -255,8 +255,8 @@ public class Revenue extends javax.swing.JFrame {
             line = 1;
             lbTotal.setText("...........");
         }
-        
-        CSDbDelegate db = new CSDbDelegate("cs14sitkmutt.me", "3306", "CSC105_G2", "CSC105_G2", "CSC105_G2");
+        CSDbDelegate db = new CSDbDelegate("csprog-in.sit.kmutt.ac.th", "3306", "CSC105_G2", "csc105_2014", "csc105");
+        //CSDbDelegate db = new CSDbDelegate("cs14sitkmutt.me", "3306", "CSC105_G2", "CSC105_G2", "CSC105_G2");
         System.out.println(db.connect());
 
         String bill = "SELECT * FROM RESTAURANT_Income";
@@ -280,7 +280,8 @@ public class Revenue extends javax.swing.JFrame {
 
     private void btnResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnResetMouseClicked
         if (model.getRowCount() > 0) {
-            CSDbDelegate db = new CSDbDelegate("cs14sitkmutt.me", "3306", "CSC105_G2", "CSC105_G2", "CSC105_G2");
+            CSDbDelegate db = new CSDbDelegate("csprog-in.sit.kmutt.ac.th", "3306", "CSC105_G2", "csc105_2014", "csc105");
+            //CSDbDelegate db = new CSDbDelegate("cs14sitkmutt.me", "3306", "CSC105_G2", "CSC105_G2", "CSC105_G2");
             System.out.println(db.connect());
             String Clear = "DELETE FROM `RESTAURANT_Income` WHERE 1";
             db.executeQuery(Clear);
