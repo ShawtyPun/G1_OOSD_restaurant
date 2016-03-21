@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 
 /**
  *
- * @author lalluby
+ * @author ngunngun
  */
 public class Reservation extends javax.swing.JFrame {
 
