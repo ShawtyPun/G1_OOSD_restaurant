@@ -6,7 +6,7 @@
 package mainrestaurant;
 /**
  *
- * @author lullaby
+ * @author ngunngun
  */
 public class MainRestaurant {
     /**

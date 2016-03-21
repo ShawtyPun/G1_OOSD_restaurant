@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 
 /**
  *
- * @author lalluby
+ * @author ngunngun
  */
 public class Billing extends javax.swing.JFrame {
 
