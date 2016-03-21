@@ -22,6 +22,9 @@ public class Revenue extends javax.swing.JFrame {
 
     JFrame test;
     javax.swing.table.DefaultTableModel model;
+    
+    int money = 0;
+    int line = 1;
 
     /**
      * Creates new form Revenue
@@ -246,8 +249,6 @@ public class Revenue extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_tblRevenueMouseClicked
 
-    int line = 1;
-    int money;
     private void btnShowAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowAllActionPerformed
         while(model.getRowCount() > 0) {
             model.removeRow(0);
