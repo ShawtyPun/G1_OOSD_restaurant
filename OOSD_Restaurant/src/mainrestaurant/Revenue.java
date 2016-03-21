@@ -257,7 +257,6 @@ public class Revenue extends javax.swing.JFrame {
             lbTotal.setText("...........");
         }
         CSDbDelegate db = new CSDbDelegate("csprog-in.sit.kmutt.ac.th", "3306", "CSC105_G2", "csc105_2014", "csc105");
-        //CSDbDelegate db = new CSDbDelegate("cs14sitkmutt.me", "3306", "CSC105_G2", "CSC105_G2", "CSC105_G2");
         System.out.println(db.connect());
 
         String bill = "SELECT * FROM RESTAURANT_Income";
