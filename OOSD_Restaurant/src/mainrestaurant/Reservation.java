@@ -25,6 +25,8 @@ public class Reservation extends javax.swing.JFrame {
 
     JFrame test;
     javax.swing.table.DefaultTableModel model;
+    
+    int line = 1;
 
     /**
      * Creates new form Reservation
@@ -314,9 +316,14 @@ public class Reservation extends javax.swing.JFrame {
             }
         });
     }//GEN-LAST:event_btnRevenueMouseClicked
-    int line = 1;
+    
     private void btnSubmitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubmitMouseClicked
-        //CSDbDelegate db = new CSDbDelegate("cs14sitkmutt.me", "3306", "CSC105_G2", "CSC105_G2", "CSC105_G2");
+        showReserver();
+        addReserverDB();
+        addReserverColumn();
+    }//GEN-LAST:event_btnSubmitMouseClicked
+
+    private void addReserverDB() {
         CSDbDelegate db = new CSDbDelegate("csprog-in.sit.kmutt.ac.th", "3306", "CSC105_G2", "csc105_2014", "csc105");
         System.out.println(db.connect());
         String Customer = "INSERT INTO RESTAURANT_Reservation(NAME, DATE, TIME,PEOPLE)"
@@ -325,7 +332,9 @@ public class Reservation extends javax.swing.JFrame {
                 + "'" + ")";
         db.executeQuery(Customer);
         db.disconnect();
+    }
 
+    private void addReserverColumn() throws NumberFormatException {
         model.addRow(new Object[0]);
         model.setValueAt(line, line - 1, 0);
         model.setValueAt(tfName.getText(), line - 1, 1);
@@ -333,7 +342,7 @@ public class Reservation extends javax.swing.JFrame {
         model.setValueAt(tfTime.getText(), line - 1, 3);
         model.setValueAt(Integer.parseInt(tfTable.getText()), line - 1, 4);
         line++;
-    }//GEN-LAST:event_btnSubmitMouseClicked
+    }
 
     private void btnResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnResetMouseClicked
         if (model.getRowCount() > 0) {
@@ -342,7 +351,6 @@ public class Reservation extends javax.swing.JFrame {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     CSDbDelegate db = new CSDbDelegate("csprog-in.sit.kmutt.ac.th", "3306", "CSC105_G2", "csc105_2014", "csc105");
-                    //CSDbDelegate db = new CSDbDelegate("cs14sitkmutt.me", "3306", "CSC105_G2", "CSC105_G2", "CSC105_G2");
                     System.out.println(db.connect());
                     String Clear = "DELETE FROM `RESTAURANT_Reservation` WHERE 1";
                     db.executeQuery(Clear);
@@ -367,14 +375,21 @@ public class Reservation extends javax.swing.JFrame {
     }//GEN-LAST:event_btnShowActionPerformed
 
     private void btnShowMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnShowMouseClicked
+        showReserver();
+    }//GEN-LAST:event_btnShowMouseClicked
+
+    private void showReserver() throws NumberFormatException {
         if(model.getRowCount()==0){
-        CSDbDelegate db = new CSDbDelegate("csprog-in.sit.kmutt.ac.th", "3306", "CSC105_G2", "csc105_2014", "csc105");
-        //CSDbDelegate db = new CSDbDelegate("cs14sitkmutt.me", "3306", "CSC105_G2", "CSC105_G2", "CSC105_G2");
-        System.out.println(db.connect());
+            CSDbDelegate db = new CSDbDelegate("csprog-in.sit.kmutt.ac.th", "3306", "CSC105_G2", "csc105_2014", "csc105");
+            System.out.println(db.connect());
+            String re = "SELECT * FROM RESTAURANT_Reservation";
+            ArrayList<HashMap> all = db.queryRows(re);
+            showTableReserve(all);
+            db.disconnect();
+        }
+    }
 
-        String re = "SELECT * FROM RESTAURANT_Reservation";
-        ArrayList<HashMap> all = db.queryRows(re);
-
+    private void showTableReserve(ArrayList<HashMap> all) throws NumberFormatException {
         for (HashMap t : all) {
             String name = (String) t.get("NAME");
             String date = (String) t.get("DATE");
@@ -388,9 +403,7 @@ public class Reservation extends javax.swing.JFrame {
             model.setValueAt(human, line - 1, 4);
             line++;
         }
-        db.disconnect();
-        }
-    }//GEN-LAST:event_btnShowMouseClicked
+    }
 
     private void setTableSize() {
         tblReserve.getColumnModel().getColumn(0).setPreferredWidth(3);
