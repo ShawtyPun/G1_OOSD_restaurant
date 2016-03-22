@@ -250,12 +250,8 @@ public class Revenue extends javax.swing.JFrame {
     }//GEN-LAST:event_tblRevenueMouseClicked
 
     private void btnShowAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowAllActionPerformed
-        while(model.getRowCount() > 0) {
-            model.removeRow(0);
-            money = 0;
-            line = 1;
-            lbTotal.setText("...........");
-        }
+        showDefaultTotal();
+        
         CSDbDelegate db = new CSDbDelegate("csprog-in.sit.kmutt.ac.th", "3306", "CSC105_G2", "csc105_2014", "csc105");
         System.out.println(db.connect());
 
@@ -278,22 +274,38 @@ public class Revenue extends javax.swing.JFrame {
         db.disconnect();
     }//GEN-LAST:event_btnShowAllActionPerformed
 
-    private void btnResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnResetMouseClicked
-        if (model.getRowCount() > 0) {
-            CSDbDelegate db = new CSDbDelegate("csprog-in.sit.kmutt.ac.th", "3306", "CSC105_G2", "csc105_2014", "csc105");
-            System.out.println(db.connect());
-            String Clear = "DELETE FROM `RESTAURANT_Income` WHERE 1";
-            db.executeQuery(Clear);
-            String ai = "ALTER TABLE RESTAURANT_Income AUTO_INCREMENT = 1";
-            db.executeQuery(ai);
-            db.disconnect();
+    private void showDefaultTotal() {
+        while(model.getRowCount() > 0) {
+            model.removeRow(0);
+            money = 0;
+            line = 1;
+            lbTotal.setText("...........");
+        }
+    }
 
+    private void btnResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnResetMouseClicked
+        setNewRevenue();
+    }//GEN-LAST:event_btnResetMouseClicked
+
+    private void setNewRevenue() {
+        if (model.getRowCount() > 0) {
+            clearRevenue();
             for (int i = model.getRowCount() - 1; i >= 0; i--) {
                 model.removeRow(i);
             }
             lbTotal.setText("...........");
         }
-    }//GEN-LAST:event_btnResetMouseClicked
+    }
+
+    private void clearRevenue() {
+        CSDbDelegate db = new CSDbDelegate("csprog-in.sit.kmutt.ac.th", "3306", "CSC105_G2", "csc105_2014", "csc105");
+        System.out.println(db.connect());
+        String Clear = "DELETE FROM `RESTAURANT_Income` WHERE 1";
+        db.executeQuery(Clear);
+        String ai = "ALTER TABLE RESTAURANT_Income AUTO_INCREMENT = 1";
+        db.executeQuery(ai);
+        db.disconnect();
+    }
 
     private void setTableSize() {
         tblRevenue.getColumnModel().getColumn(0).setPreferredWidth(10);
@@ -302,8 +314,6 @@ public class Revenue extends javax.swing.JFrame {
         tblRevenue.getTableHeader().setFont(new Font("SansSerif", Font.BOLD, 14));
 
         DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
-        //centerRenderer.setHorizontalAlignment(jLabel1.CENTER); // for make a data be in center
-        //tblRevenue.setDefaultRenderer(String.class, centerRenderer);
         tblRevenue.getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
         tblRevenue.getColumnModel().getColumn(1).setCellRenderer(centerRenderer);
         tblRevenue.getColumnModel().getColumn(2).setCellRenderer(centerRenderer);
