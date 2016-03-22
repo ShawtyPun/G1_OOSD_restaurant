@@ -8,6 +8,7 @@ package mainrestaurant;
 import edu.sit.cs.db.CSDbDelegate;
 import java.awt.Component;
 import java.awt.Font;
+import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -320,8 +321,6 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSubmitActionPerformed
     int line = 1; // this line is for run row
     private void btnSubmitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubmitMouseClicked
-        // mouse click submit then
-        //CSDbDelegate db = new CSDbDelegate("cs14sitkmutt.me", "3306", "CSC105_G2", "CSC105_G2", "CSC105_G2");
         CSDbDelegate db = new CSDbDelegate("csprog-in.sit.kmutt.ac.th", "3306", "CSC105_G2", "csc105_2014", "csc105");
         System.out.println(db.connect());
 
@@ -369,7 +368,6 @@ public class Main extends javax.swing.JFrame {
         if (line - 1 > 0) {
             model.removeRow(line - 2);
             line--;
-            //CSDbDelegate db = new CSDbDelegate("cs14sitkmutt.me", "3306", "CSC105_G2", "CSC105_G2", "CSC105_G2");
             CSDbDelegate db = new CSDbDelegate("csprog-in.sit.kmutt.ac.th", "3306", "CSC105_G2", "csc105_2014", "csc105");
             System.out.println(db.connect());
             String menu = cbbMenu.getSelectedItem().toString();
@@ -384,19 +382,26 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnPopMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPopMouseClicked
+        showPopularMenu();
+    }//GEN-LAST:event_btnPopMouseClicked
+
+    private void showPopularMenu() throws HeadlessException {
         CSDbDelegate db = new CSDbDelegate("csprog-in.sit.kmutt.ac.th", "3306", "CSC105_G2", "csc105_2014", "csc105");
-        //CSDbDelegate db = new CSDbDelegate("cs14sitkmutt.me", "3306", "CSC105_G2", "CSC105_G2", "CSC105_G2");
         System.out.println(db.connect());
         String num = "";
         String pop = "SELECT `ORDER`,SUM(`AMOUNT`) FROM `RESTAURANT_mostPopular` WHERE 1 GROUP BY `ORDER` ORDER BY SUM(`AMOUNT`) ASC";
-        ArrayList<HashMap> mostP = db.queryRows(pop);
-            for (HashMap m : mostP) {
-                num = (String) m.get("ORDER");
-            }
+        num = getPopularMenu(db, pop, num);
         db.disconnect();
         JOptionPane.showMessageDialog(null, num);
+    }
 
-    }//GEN-LAST:event_btnPopMouseClicked
+    private String getPopularMenu(CSDbDelegate db, String pop, String num) {
+        ArrayList<HashMap> mostP = db.queryRows(pop);
+        for (HashMap m : mostP) {
+            num = (String) m.get("ORDER");
+        }
+        return num;
+    }
 
     private void setTableSize() {
         tblOrder.getColumnModel().getColumn(0).setPreferredWidth(5);
