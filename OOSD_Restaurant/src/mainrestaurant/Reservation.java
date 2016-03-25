@@ -17,7 +17,7 @@ import java.util.Date;
 import java.util.HashMap;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-import mainrestaurant.control.ReservationControler;
+import mainrestaurant.control.ReservationController;
 
 /**
  *
@@ -28,7 +28,7 @@ public class Reservation extends javax.swing.JFrame {
     JFrame test;
     DefaultTableModel model;
     
-    private ReservationControler controler = new ReservationControler();
+    private ReservationController controller = new ReservationController();
     int line = 1;
 
     /**
@@ -145,21 +145,11 @@ public class Reservation extends javax.swing.JFrame {
                 btnResetMouseClicked(evt);
             }
         });
-        btnReset.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnResetActionPerformed(evt);
-            }
-        });
 
         btnShow.setText("Show all");
         btnShow.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnShowMouseClicked(evt);
-            }
-        });
-        btnShow.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnShowActionPerformed(evt);
             }
         });
 
@@ -292,31 +282,10 @@ public class Reservation extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRevenueMouseClicked
     
     private void btnSubmitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubmitMouseClicked
-        controler.showReserver(model);
-        addReserverDB();
-        addReserverColumn();
+        controller.showReserver(model);
+        controller.addReserverDB(tfName, tfDate, tfTime, tfTable);
+        controller.addReserverColumn(model, tfName, tfDate, tfTime, tfTable);
     }//GEN-LAST:event_btnSubmitMouseClicked
-
-    private void addReserverDB() {
-        CSDbDelegate db = new CSDbDelegate("csprog-in.sit.kmutt.ac.th", "3306", "CSC105_G2", "csc105_2014", "csc105");
-        System.out.println(db.connect());
-        String Customer = "INSERT INTO RESTAURANT_Reservation(NAME, DATE, TIME,PEOPLE)"
-                + "VALUE(" + "'" + tfName.getText() + "'" + "," + "'" + tfDate.getText()
-                + "'" + "," + "'" + tfTime.getText() + "'" + "," + "'" + tfTable.getText()
-                + "'" + ")";
-        db.executeQuery(Customer);
-        db.disconnect();
-    }
-
-    private void addReserverColumn() throws NumberFormatException {
-        model.addRow(new Object[0]);
-        model.setValueAt(line, line - 1, 0);
-        model.setValueAt(tfName.getText(), line - 1, 1);
-        model.setValueAt(tfDate.getText(), line - 1, 2);
-        model.setValueAt(tfTime.getText(), line - 1, 3);
-        model.setValueAt(Integer.parseInt(tfTable.getText()), line - 1, 4);
-        line++;
-    }
 
     private void btnResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnResetMouseClicked
         if (model.getRowCount() > 0) {
@@ -340,16 +309,8 @@ public class Reservation extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnResetMouseClicked
 
-    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnResetActionPerformed
-
-    private void btnShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnShowActionPerformed
-
     private void btnShowMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnShowMouseClicked
-        controler.showReserver(model);
+        controller.showReserver(model);
     }//GEN-LAST:event_btnShowMouseClicked
 
     private void setTableSize() {

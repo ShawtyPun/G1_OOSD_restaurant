@@ -9,7 +9,7 @@ import edu.sit.cs.db.CSDbDelegate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.table.DefaultTableModel;
-import mainrestaurant.control.ReservationControler;
+import mainrestaurant.control.ReservationController;
 
 /**
  *
@@ -56,6 +56,14 @@ public class DBMethod extends CSDbDelegate{
     
     
     //RESERVATION
-
+    public ArrayList<HashMap> getAllReserver() {
+        dbConnect();
+        String re = "SELECT * FROM RESTAURANT_Reservation";
+        ArrayList<HashMap> all = dbb.queryRows(re);
+        dbDisConnect();
+        return all;
+    }
+    
+    
     
 }

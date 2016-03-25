@@ -8,6 +8,7 @@ package mainrestaurant.control;
 import edu.sit.cs.db.CSDbDelegate;
 import java.util.ArrayList;
 import java.util.HashMap;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import mainrestaurant.model.DBMethod;
 
@@ -15,7 +16,7 @@ import mainrestaurant.model.DBMethod;
  *
  * @author ngunngun
  */
-public class ReservationControler {
+public class ReservationController {
     int line = 1;
     private DBMethod db = new DBMethod();
     
@@ -44,11 +45,29 @@ public class ReservationControler {
     }
     
     public void getAllResever(DefaultTableModel model) throws NumberFormatException {
+        showTableReserve(model,db.getAllReserver());
+    }
+    
+    public void addReserverColumn(DefaultTableModel model, JTextField tfName, JTextField tfDate, JTextField tfTime, JTextField tfTable) throws NumberFormatException {
+        model.addRow(new Object[0]);
+        model.setValueAt(line, line - 1, 0);
+        model.setValueAt(tfName.getText(), line - 1, 1);
+        model.setValueAt(tfDate.getText(), line - 1, 2);
+        model.setValueAt(tfTime.getText(), line - 1, 3);
+        model.setValueAt(Integer.parseInt(tfTable.getText()), line - 1, 4);
+        line++;
+    }
+    
+        public void addReserverDB(JTextField tfName, JTextField tfDate, JTextField tfTime, JTextField tfTable) {
         CSDbDelegate db = new CSDbDelegate("csprog-in.sit.kmutt.ac.th", "3306", "CSC105_G2", "csc105_2014", "csc105");
         System.out.println(db.connect());
-        String re = "SELECT * FROM RESTAURANT_Reservation";
-        ArrayList<HashMap> all = db.queryRows(re);
-        showTableReserve(model,all);
+        String Customer = "INSERT INTO RESTAURANT_Reservation(NAME, DATE, TIME,PEOPLE)"
+                + "VALUE(" + "'" + tfName.getText() + "'" + "," + "'" + tfDate.getText()
+                + "'" + "," + "'" + tfTime.getText() + "'" + "," + "'" + tfTable.getText()
+                + "'" + ")";
+        db.executeQuery(Customer);
         db.disconnect();
     }
+    
+    
 }
