@@ -13,6 +13,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+import mainrestaurant.control.RevenueControler;
+import mainrestaurant.model.DBMethod;
 
 /**
  *
@@ -21,18 +24,16 @@ import javax.swing.table.DefaultTableCellRenderer;
 public class Revenue extends javax.swing.JFrame {
 
     JFrame test;
-    javax.swing.table.DefaultTableModel model;
+    DefaultTableModel model;
     
-    int money = 0;
-    int line = 1;
-
+    private RevenueControler controler = new RevenueControler();
     /**
      * Creates new form Revenue
      */
     public Revenue() {
         initComponents();
         setTableSize();
-        model = (javax.swing.table.DefaultTableModel) tblRevenue.getModel();
+        model = (DefaultTableModel) tblRevenue.getModel();
     }
 
     public void setJFrame(JFrame f) {
@@ -107,11 +108,6 @@ public class Revenue extends javax.swing.JFrame {
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
-            }
-        });
-        tblRevenue.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblRevenueMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(tblRevenue);
@@ -245,68 +241,17 @@ public class Revenue extends javax.swing.JFrame {
         });
     }//GEN-LAST:event_btnReserveMouseClicked
 
-    private void tblRevenueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblRevenueMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tblRevenueMouseClicked
-
     private void btnShowAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowAllActionPerformed
-        showDefaultTotal();
-        
-        CSDbDelegate db = new CSDbDelegate("csprog-in.sit.kmutt.ac.th", "3306", "CSC105_G2", "csc105_2014", "csc105");
-        System.out.println(db.connect());
+        controler.showDefaultTotal(model, lbTotal);
+        ArrayList<HashMap> total = controler.getAllBill();
+        controler.showRevenueList(model, lbTotal, total);
 
-        String bill = "SELECT * FROM RESTAURANT_Income";
-        ArrayList<HashMap> total = db.queryRows(bill);
-
-        for (HashMap t : total) {
-            String getDT = (String) t.get("DateTime");
-            int income = Integer.parseInt((String) t.get("TOTAL"));
-            model.addRow(new Object[0]);
-            model.setValueAt(line, line - 1, 0);
-            model.setValueAt(getDT, line - 1, 1);
-            model.setValueAt(income + ".-", line - 1, 2);
-            line++;
-
-            money = money + income;
-            lbTotal.setText("" + money);
-        }
-
-        db.disconnect();
     }//GEN-LAST:event_btnShowAllActionPerformed
-
-    private void showDefaultTotal() {
-        while(model.getRowCount() > 0) {
-            model.removeRow(0);
-            money = 0;
-            line = 1;
-            lbTotal.setText("...........");
-        }
-    }
-
+    
     private void btnResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnResetMouseClicked
-        setNewRevenue();
+        controler.setNewRevenue(model, lbTotal);
     }//GEN-LAST:event_btnResetMouseClicked
-
-    private void setNewRevenue() {
-        if (model.getRowCount() > 0) {
-            clearRevenue();
-            for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                model.removeRow(i);
-            }
-            lbTotal.setText("...........");
-        }
-    }
-
-    private void clearRevenue() {
-        CSDbDelegate db = new CSDbDelegate("csprog-in.sit.kmutt.ac.th", "3306", "CSC105_G2", "csc105_2014", "csc105");
-        System.out.println(db.connect());
-        String Clear = "DELETE FROM `RESTAURANT_Income` WHERE 1";
-        db.executeQuery(Clear);
-        String ai = "ALTER TABLE RESTAURANT_Income AUTO_INCREMENT = 1";
-        db.executeQuery(ai);
-        db.disconnect();
-    }
-
+    
     private void setTableSize() {
         tblRevenue.getColumnModel().getColumn(0).setPreferredWidth(10);
         tblRevenue.getColumnModel().getColumn(1).setPreferredWidth(200);

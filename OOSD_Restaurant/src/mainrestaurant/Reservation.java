@@ -16,6 +16,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+import mainrestaurant.control.ReservationControler;
 
 /**
  *
@@ -24,8 +26,9 @@ import javax.swing.table.DefaultTableCellRenderer;
 public class Reservation extends javax.swing.JFrame {
 
     JFrame test;
-    javax.swing.table.DefaultTableModel model;
+    DefaultTableModel model;
     
+    private ReservationControler controler = new ReservationControler();
     int line = 1;
 
     /**
@@ -34,7 +37,7 @@ public class Reservation extends javax.swing.JFrame {
     public Reservation() {
         initComponents();
         setTableSize();
-        model = (javax.swing.table.DefaultTableModel) tblReserve.getModel();
+        model = (DefaultTableModel) tblReserve.getModel();
     }
 
     public void setJFrame(JFrame f) {
@@ -101,18 +104,7 @@ public class Reservation extends javax.swing.JFrame {
 
         jLabel4.setText("Date and Time:");
 
-        tfDate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfDateActionPerformed(evt);
-            }
-        });
-
         tfTime.setText("00:00:00");
-        tfTime.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfTimeActionPerformed(evt);
-            }
-        });
 
         jLabel5.setText("PeopleNum :");
 
@@ -128,11 +120,6 @@ public class Reservation extends javax.swing.JFrame {
         btnOrder.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnOrderMouseClicked(evt);
-            }
-        });
-        btnOrder.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnOrderActionPerformed(evt);
             }
         });
 
@@ -223,12 +210,11 @@ public class Reservation extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(32, 32, 32)
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18))
+                        .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(btnReset)
-                        .addGap(10, 10, 10)))
+                        .addComponent(btnReset)))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
@@ -265,18 +251,6 @@ public class Reservation extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void tfDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfDateActionPerformed
-
-    }//GEN-LAST:event_tfDateActionPerformed
-
-    private void tfTimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfTimeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfTimeActionPerformed
-
-    private void btnOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnOrderActionPerformed
 
     private void btnOrderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOrderMouseClicked
         btnOrder.addActionListener(new ActionListener() {
@@ -318,7 +292,7 @@ public class Reservation extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRevenueMouseClicked
     
     private void btnSubmitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubmitMouseClicked
-        showReserver();
+        controler.showReserver(model);
         addReserverDB();
         addReserverColumn();
     }//GEN-LAST:event_btnSubmitMouseClicked
@@ -375,35 +349,8 @@ public class Reservation extends javax.swing.JFrame {
     }//GEN-LAST:event_btnShowActionPerformed
 
     private void btnShowMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnShowMouseClicked
-        showReserver();
+        controler.showReserver(model);
     }//GEN-LAST:event_btnShowMouseClicked
-
-    private void showReserver() throws NumberFormatException {
-        if(model.getRowCount()==0){
-            CSDbDelegate db = new CSDbDelegate("csprog-in.sit.kmutt.ac.th", "3306", "CSC105_G2", "csc105_2014", "csc105");
-            System.out.println(db.connect());
-            String re = "SELECT * FROM RESTAURANT_Reservation";
-            ArrayList<HashMap> all = db.queryRows(re);
-            showTableReserve(all);
-            db.disconnect();
-        }
-    }
-
-    private void showTableReserve(ArrayList<HashMap> all) throws NumberFormatException {
-        for (HashMap t : all) {
-            String name = (String) t.get("NAME");
-            String date = (String) t.get("DATE");
-            String time = (String) t.get("TIME");
-            int human = Integer.parseInt((String) t.get("PEOPLE"));
-            model.addRow(new Object[0]);
-            model.setValueAt(line, line - 1, 0);
-            model.setValueAt(name, line - 1, 1);
-            model.setValueAt(date, line - 1, 2);
-            model.setValueAt(time, line - 1, 3);
-            model.setValueAt(human, line - 1, 4);
-            line++;
-        }
-    }
 
     private void setTableSize() {
         tblReserve.getColumnModel().getColumn(0).setPreferredWidth(3);
