@@ -6,11 +6,15 @@
 package mainrestaurant.model;
 
 import edu.sit.cs.db.CSDbDelegate;
+import java.awt.HeadlessException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+import javax.swing.JSpinner;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
-import mainrestaurant.control.ReservationController;
+import mainrestaurant.control.OrderController;
 
 /**
  *
@@ -18,6 +22,7 @@ import mainrestaurant.control.ReservationController;
  */
 public class DBMethod extends CSDbDelegate{
     private CSDbDelegate dbb;
+    private OrderController or;
     
     public DBMethod() {
         dbb = new CSDbDelegate("csprog-in.sit.kmutt.ac.th", "3306", "CSC105_G2", "csc105_2014", "csc105");
@@ -84,6 +89,23 @@ public class DBMethod extends CSDbDelegate{
         dbDisConnect();
     }
     
+    //ORDER
+    public String showPopularMenu() throws HeadlessException {
+        dbConnect();
+        String num = "";
+        String pop = "SELECT `ORDER`,SUM(`AMOUNT`) FROM `RESTAURANT_mostPopular` WHERE 1 GROUP BY `ORDER` ORDER BY SUM(`AMOUNT`) ASC";
+        num = getPopularMenu(dbb, pop, num);
+        dbDisConnect();
+        return num;
+    }
+    
+    public String getPopularMenu(CSDbDelegate db, String pop, String num) {
+        ArrayList<HashMap> mostP = db.queryRows(pop);
+        for (HashMap m : mostP) {
+            num = (String) m.get("ORDER");
+        }
+        return num;
+    }
     
     
 }

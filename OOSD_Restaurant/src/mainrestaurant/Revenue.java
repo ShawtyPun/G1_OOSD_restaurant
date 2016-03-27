@@ -207,7 +207,7 @@ public class Revenue extends javax.swing.JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                Main od = new Main();
+                Order od = new Order();
                 od.setJFrame(od);
                 od.getJFrame().setVisible(true);
                 getJFrame().setVisible(false);

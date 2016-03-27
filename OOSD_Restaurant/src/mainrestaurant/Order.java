@@ -16,23 +16,27 @@ import java.util.HashMap;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+import mainrestaurant.control.OrderController;
 
 /**
  *
  * @author ngunngun
  */
-public class Main extends javax.swing.JFrame {
+public class Order extends javax.swing.JFrame {
 
     JFrame test;
-    javax.swing.table.DefaultTableModel model;
+    DefaultTableModel model;
+    
+    private OrderController controller = new OrderController();
 
     /**
      * Creates new form Main
      */
-    public Main() {
+    public Order() {
         initComponents();
         setTableSize();
-        model = (javax.swing.table.DefaultTableModel) tblOrder.getModel();
+        model = (DefaultTableModel) tblOrder.getModel();
     }
 
     public void setJFrame(JFrame f) {
@@ -98,22 +102,12 @@ public class Main extends javax.swing.JFrame {
                 btnBillMouseClicked(evt);
             }
         });
-        btnBill.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBillActionPerformed(evt);
-            }
-        });
 
         btnReserve.setFont(new java.awt.Font("Lucida Grande", 0, 40)); // NOI18N
         btnReserve.setText("RESERVATION");
         btnReserve.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnReserveMouseClicked(evt);
-            }
-        });
-        btnReserve.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReserveActionPerformed(evt);
             }
         });
 
@@ -127,11 +121,6 @@ public class Main extends javax.swing.JFrame {
 
         cbbMenu.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         cbbMenu.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Fried_rice(with egg,pork,chicken)", "Fried_rice(with squid,shrimp)", "Macaroni_Soup(creamy/tomato/chicken soup)", "Pizza(L)", "Pizza(M)", "Rice_with_fried_pork_with_pepper_and_garlic", "Spaghetti_Bolognese", "Spaghetti_Carbonara", "Tom_Yum" }));
-        cbbMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbbMenuActionPerformed(evt);
-            }
-        });
 
         jLabel2.setFont(new java.awt.Font("Al Bayan", 0, 18)); // NOI18N
         jLabel2.setText("Menu :");
@@ -149,22 +138,12 @@ public class Main extends javax.swing.JFrame {
                 btnSubmitMouseClicked(evt);
             }
         });
-        btnSubmit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSubmitActionPerformed(evt);
-            }
-        });
 
         jLabel4.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         jLabel4.setText("TableNum :");
 
         cbbTable.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
         cbbTable.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
-        cbbTable.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbbTableActionPerformed(evt);
-            }
-        });
 
         jButton1.setText("Undo");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -236,7 +215,6 @@ public class Main extends javax.swing.JFrame {
                                 .addGap(38, 38, 38)
                                 .addComponent(btnBill))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel2)
                                     .addComponent(cbbMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -263,18 +241,6 @@ public class Main extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnReserveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReserveActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnReserveActionPerformed
-
-    private void cbbMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbMenuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbbMenuActionPerformed
-
-    private void btnBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBillActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnBillActionPerformed
 
     private void btnBillMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBillMouseClicked
         btnBill.addActionListener(new ActionListener() {
@@ -315,10 +281,6 @@ public class Main extends javax.swing.JFrame {
             }
         });
     }//GEN-LAST:event_btnRevenueMouseClicked
-
-    private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnSubmitActionPerformed
     int line = 1; // this line is for run row
     private void btnSubmitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubmitMouseClicked
         CSDbDelegate db = new CSDbDelegate("csprog-in.sit.kmutt.ac.th", "3306", "CSC105_G2", "csc105_2014", "csc105");
@@ -360,10 +322,6 @@ public class Main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnSubmitMouseClicked
 
-    private void cbbTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbTableActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbbTableActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if (line - 1 > 0) {
             model.removeRow(line - 2);
@@ -382,26 +340,10 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnPopMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPopMouseClicked
-        showPopularMenu();
+        controller.showPopularMenu();
     }//GEN-LAST:event_btnPopMouseClicked
 
-    private void showPopularMenu() throws HeadlessException {
-        CSDbDelegate db = new CSDbDelegate("csprog-in.sit.kmutt.ac.th", "3306", "CSC105_G2", "csc105_2014", "csc105");
-        System.out.println(db.connect());
-        String num = "";
-        String pop = "SELECT `ORDER`,SUM(`AMOUNT`) FROM `RESTAURANT_mostPopular` WHERE 1 GROUP BY `ORDER` ORDER BY SUM(`AMOUNT`) ASC";
-        num = getPopularMenu(db, pop, num);
-        db.disconnect();
-        JOptionPane.showMessageDialog(null, num);
-    }
-
-    private String getPopularMenu(CSDbDelegate db, String pop, String num) {
-        ArrayList<HashMap> mostP = db.queryRows(pop);
-        for (HashMap m : mostP) {
-            num = (String) m.get("ORDER");
-        }
-        return num;
-    }
+    
 
     private void setTableSize() {
         tblOrder.getColumnModel().getColumn(0).setPreferredWidth(5);
@@ -434,20 +376,21 @@ public class Main extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Order.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Order.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Order.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Main.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Order.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Main().setVisible(true);
+                new Order().setVisible(true);
             }
         });
     }

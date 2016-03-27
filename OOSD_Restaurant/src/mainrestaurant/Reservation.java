@@ -29,7 +29,6 @@ public class Reservation extends javax.swing.JFrame {
     DefaultTableModel model;
     
     private ReservationController controller = new ReservationController();
-    int line = 1;
 
     /**
      * Creates new form Reservation
@@ -247,7 +246,7 @@ public class Reservation extends javax.swing.JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                Main od = new Main();
+                Order od = new Order();
                 od.setJFrame(od);
                 od.getJFrame().setVisible(true);
                 getJFrame().setVisible(false);

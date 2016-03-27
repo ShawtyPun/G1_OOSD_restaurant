@@ -13,7 +13,7 @@ public class MainRestaurant {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Main m1 = new Main();
+        Order m1 = new Order();
         m1.setJFrame(m1);
         m1.getJFrame().setVisible(true);
     }
