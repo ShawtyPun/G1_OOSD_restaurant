@@ -293,14 +293,8 @@ public class Reservation extends javax.swing.JFrame {
 
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    CSDbDelegate db = new CSDbDelegate("csprog-in.sit.kmutt.ac.th", "3306", "CSC105_G2", "csc105_2014", "csc105");
-                    System.out.println(db.connect());
-                    String Clear = "DELETE FROM `RESTAURANT_Reservation` WHERE 1";
-                    db.executeQuery(Clear);
-                    String ai = "ALTER TABLE RESTAURANT_Reservation AUTO_INCREMENT = 1";
-                    db.executeQuery(ai);
-                    db.disconnect();
-                }
+                    controller.RemoveReserve();
+                }      
             });
 
             for (int i = model.getRowCount() - 1; i >= 0; i--) {

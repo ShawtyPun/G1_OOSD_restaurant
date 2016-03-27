@@ -8,6 +8,7 @@ package mainrestaurant.model;
 import edu.sit.cs.db.CSDbDelegate;
 import java.util.ArrayList;
 import java.util.HashMap;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import mainrestaurant.control.ReservationController;
 
@@ -17,7 +18,6 @@ import mainrestaurant.control.ReservationController;
  */
 public class DBMethod extends CSDbDelegate{
     private CSDbDelegate dbb;
-    //private ReservationControler reserve = new ReservationControler();
     
     public DBMethod() {
         dbb = new CSDbDelegate("csprog-in.sit.kmutt.ac.th", "3306", "CSC105_G2", "csc105_2014", "csc105");
@@ -34,6 +34,7 @@ public class DBMethod extends CSDbDelegate{
     public void dbExecuteQuery(String sql){
         dbb.executeQuery(sql);
     }
+
     
     //REVENUE
     
@@ -64,6 +65,23 @@ public class DBMethod extends CSDbDelegate{
         return all;
     }
     
+    public void addReserverDB(JTextField tfName, JTextField tfDate, JTextField tfTime, JTextField tfTable) {
+        dbConnect();
+        String Customer = "INSERT INTO RESTAURANT_Reservation(NAME, DATE, TIME,PEOPLE)"
+                + "VALUE(" + "'" + tfName.getText() + "'" + "," + "'" + tfDate.getText()
+                + "'" + "," + "'" + tfTime.getText() + "'" + "," + "'" + tfTable.getText()
+                + "'" + ")";
+        dbExecuteQuery(Customer);
+        dbDisConnect();
+    }
     
+    public void RemoveReserve() {
+        dbConnect();
+        String Clear = "DELETE FROM `RESTAURANT_Reservation` WHERE 1";
+        dbExecuteQuery(Clear);
+        String ai = "ALTER TABLE RESTAURANT_Reservation AUTO_INCREMENT = 1";
+        dbExecuteQuery(ai);
+        dbDisConnect();
+    }
     
 }

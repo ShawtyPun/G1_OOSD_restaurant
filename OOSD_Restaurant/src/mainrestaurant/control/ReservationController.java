@@ -58,16 +58,11 @@ public class ReservationController {
         line++;
     }
     
-        public void addReserverDB(JTextField tfName, JTextField tfDate, JTextField tfTime, JTextField tfTable) {
-        CSDbDelegate db = new CSDbDelegate("csprog-in.sit.kmutt.ac.th", "3306", "CSC105_G2", "csc105_2014", "csc105");
-        System.out.println(db.connect());
-        String Customer = "INSERT INTO RESTAURANT_Reservation(NAME, DATE, TIME,PEOPLE)"
-                + "VALUE(" + "'" + tfName.getText() + "'" + "," + "'" + tfDate.getText()
-                + "'" + "," + "'" + tfTime.getText() + "'" + "," + "'" + tfTable.getText()
-                + "'" + ")";
-        db.executeQuery(Customer);
-        db.disconnect();
+    public void addReserverDB(JTextField tfName, JTextField tfDate, JTextField tfTime, JTextField tfTable) {
+        db.addReserverDB(tfName, tfDate, tfTime, tfTable);
     }
     
-    
+    public void RemoveReserve() {
+        db.RemoveReserve();
+    }
 }
