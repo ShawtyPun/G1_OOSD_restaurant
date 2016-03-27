@@ -16,7 +16,7 @@ import mainrestaurant.model.DBMethod;
  *
  * @author ngunngun
  */
-public class RevenueControler {
+public class RevenueController {
     int money = 0;
     int line = 1;
     private DBMethod db = new DBMethod();

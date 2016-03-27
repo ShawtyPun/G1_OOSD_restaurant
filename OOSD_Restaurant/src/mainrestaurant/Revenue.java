@@ -14,7 +14,7 @@ import java.util.HashMap;
 import javax.swing.JFrame;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-import mainrestaurant.control.RevenueControler;
+import mainrestaurant.control.RevenueController;
 import mainrestaurant.model.DBMethod;
 
 /**
@@ -26,7 +26,7 @@ public class Revenue extends javax.swing.JFrame {
     JFrame test;
     DefaultTableModel model;
     
-    private RevenueControler controler = new RevenueControler();
+    private RevenueController controler = new RevenueController();
     /**
      * Creates new form Revenue
      */
