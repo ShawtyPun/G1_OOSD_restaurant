@@ -10,11 +10,14 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import edu.sit.cs.db.CSDbDelegate;
 import java.awt.Font;
+import java.awt.HeadlessException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+import mainrestaurant.control.BillingController;
 
 /**
  *
@@ -23,7 +26,8 @@ import javax.swing.table.DefaultTableCellRenderer;
 public class Billing extends javax.swing.JFrame {
 
     JFrame test;
-    javax.swing.table.DefaultTableModel model;
+    DefaultTableModel model;
+    private BillingController controller = new BillingController();
 
     /**
      * Creates new form Billing
@@ -31,7 +35,7 @@ public class Billing extends javax.swing.JFrame {
     public Billing() {
         initComponents();
         setTableSize();
-        model = (javax.swing.table.DefaultTableModel) tblBill.getModel();
+        model = (DefaultTableModel) tblBill.getModel();
     }
 
     public void setJFrame(JFrame f) {
@@ -128,21 +132,11 @@ public class Billing extends javax.swing.JFrame {
                 btnRevenueMouseClicked(evt);
             }
         });
-        btnRevenue.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRevenueActionPerformed(evt);
-            }
-        });
 
         btnCheck.setText("Check");
         btnCheck.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnCheckMouseClicked(evt);
-            }
-        });
-        btnCheck.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCheckActionPerformed(evt);
             }
         });
 
@@ -208,10 +202,6 @@ public class Billing extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnRevenueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRevenueActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnRevenueActionPerformed
-
     private void btnOrderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOrderMouseClicked
         btnOrder.addActionListener(new ActionListener() {
 
@@ -267,73 +257,14 @@ public class Billing extends javax.swing.JFrame {
         tblBill.getColumnModel().getColumn(2).setCellRenderer(centerRenderer);
         tblBill.getColumnModel().getColumn(3).setCellRenderer(centerRenderer);
         tblBill.getColumnModel().getColumn(4).setCellRenderer(centerRenderer);
-
     }
-    int line;
-    int total;
+    
     private void cbbTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbTableActionPerformed
-        CSDbDelegate db = new CSDbDelegate("csprog-in.sit.kmutt.ac.th", "3306", "CSC105_G2", "csc105_2014", "csc105");
-        System.out.println(db.connect());
-        String table = "SELECT * FROM RESTAURANT_Keeper WHERE TABLENUM = " + cbbTable.getSelectedItem().toString();
-
-        int orderPrice = 0;
-        int amount = 0;
-        int sum = 0;
-        ArrayList<HashMap> order = db.queryRows(table);
-        for (HashMap p : order) {
-            String getOrder = (String) p.get("ORDER");
-            String price = "SELECT price FROM RESTAURANT_Order WHERE list = '" + getOrder.trim() + "'";
-            ArrayList<HashMap> menu = db.queryRows(price);
-            for (HashMap t : menu) {
-                orderPrice = Integer.valueOf((String) t.get("price"));
-            }
-            amount = (Integer.parseInt((String) p.get("AMOUNT")));
-            sum = sum + (orderPrice * amount);
-            model.addRow(new Object[0]);
-            model.setValueAt(line + 1, line, 0);
-            model.setValueAt((String) p.get("ORDER"), line, 1);
-            model.setValueAt((String) p.get("AMOUNT"), line, 2);
-            model.setValueAt(orderPrice, line, 3);
-            model.setValueAt(orderPrice * amount, line, 4);
-            line++;
-        }
-        total = sum;
-        lbTotal.setText("" + total);
-
-        db.disconnect();
+        controller.checkBill(cbbTable, model, lbTotal);
     }//GEN-LAST:event_cbbTableActionPerformed
 
-    private void btnCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCheckActionPerformed
-
-    }//GEN-LAST:event_btnCheckActionPerformed
-
     private void btnCheckMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCheckMouseClicked
-        if (model.getRowCount() > 0) {
-            int answer = JOptionPane.showConfirmDialog(null, "Do you really want to check bill?", "WARNING!!!",
-                    JOptionPane.YES_NO_OPTION,
-                    JOptionPane.ERROR_MESSAGE);
-            if (answer == JOptionPane.YES_OPTION) {
-                CSDbDelegate db = new CSDbDelegate("csprog-in.sit.kmutt.ac.th", "3306", "CSC105_G2", "csc105_2014", "csc105");
-                //CSDbDelegate db = new CSDbDelegate("cs14sitkmutt.me", "3306", "CSC105_G2", "CSC105_G2", "CSC105_G2");
-                System.out.println(db.connect());
-                String use = "UPDATE `RESTAURANT_Tables` SET `isUsing`= 0 WHERE TABLENUM = " + cbbTable.getSelectedItem().toString();
-                db.executeQuery(use);
-                String add = "INSERT INTO RESTAURANT_Income(TOTAL) VALUES (" + total + ")";
-                db.executeQuery(add);
-                String clear = "DELETE FROM RESTAURANT_Keeper WHERE TABLENUM =" + cbbTable.getSelectedItem().toString();
-                db.executeQuery(clear);
-                db.disconnect();
-
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    model.removeRow(i);
-                }
-                total = 0;
-                lbTotal.setText("" + total);
-
-            } else if (answer == JOptionPane.NO_OPTION) {
-                // User clicked NO.
-            }
-        }
+        controller.checkTable(model, lbTotal, cbbTable);
     }//GEN-LAST:event_btnCheckMouseClicked
 
     /**

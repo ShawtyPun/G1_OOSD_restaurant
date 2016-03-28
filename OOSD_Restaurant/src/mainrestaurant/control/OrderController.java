@@ -20,7 +20,7 @@ import mainrestaurant.model.DBMethod;
  * @author ngunngun
  */
 public class OrderController {
-    public int line = 1;
+    //int line = 1;
     private DBMethod db = new DBMethod();
     
     public void showPopularMenu() throws HeadlessException {
@@ -28,10 +28,46 @@ public class OrderController {
     }
 
     public void getPopularMenu() {
-        db.getPopularMenu(db, null, null);
+        db.getPopularMenu(null, null);
     }    
 
+    public int doUndo(DefaultTableModel model, JComboBox cbbMenu, JComboBox cbbTable, JSpinner spnAmount, int line) throws NumberFormatException {
+        if (line - 1 > 0) {
+            model.removeRow(line - 2);
+            line--;
+            String menu = cbbMenu.getSelectedItem().toString();
+            int amount = Integer.parseInt(spnAmount.getValue().toString());
+            int tableNo = Integer.parseInt(cbbTable.getSelectedItem().toString());
+            db.doUndoDB(cbbTable, line);
+        }
+        return line;
+    }
+    
+    public ArrayList<HashMap> getUseTable(JComboBox cbbTable) {
+        return db.getUseTableDB(cbbTable);
+    }
+
+    public int orderMenu(int u, int i, int line, JComboBox cbbMenu, DefaultTableModel model, JComboBox cbbTable, JSpinner spnAmount) throws HeadlessException, NumberFormatException {
+        if (u == 1 && i == -1) {
+            JOptionPane.showMessageDialog(null, "This table is using");
+        } else {
+            model.addRow(new Object[0]);
+            model.setValueAt(line, line - 1, 0);
+            model.setValueAt(cbbMenu.getSelectedItem().toString(), line - 1, 1);
+            model.setValueAt(spnAmount.getValue(), line - 1, 2);
+            model.setValueAt(cbbTable.getSelectedItem().toString(), line - 1, 3);
+            
+            db.setUseTable(cbbTable);
+            String menu = cbbMenu.getSelectedItem().toString();
+            int amount = Integer.parseInt(spnAmount.getValue().toString());
+            int tableNo = Integer.parseInt(cbbTable.getSelectedItem().toString());
+            db.insertOrder(line, menu, amount, tableNo);
+            line++; //for add new row for data
+        }
+        return line;
+    }
 
     
+
     
 }

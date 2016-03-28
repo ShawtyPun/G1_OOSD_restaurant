@@ -283,60 +283,17 @@ public class Order extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRevenueMouseClicked
     int line = 1; // this line is for run row
     private void btnSubmitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubmitMouseClicked
-        CSDbDelegate db = new CSDbDelegate("csprog-in.sit.kmutt.ac.th", "3306", "CSC105_G2", "csc105_2014", "csc105");
-        System.out.println(db.connect());
-
         int i = model.getRowCount() - 1;
-
-        String check = "SELECT isUsing FROM RESTAURANT_Tables WHERE TABLENUM = " + cbbTable.getSelectedItem().toString();
-        ArrayList<HashMap> total = db.queryRows(check);
+        ArrayList<HashMap> total = controller.getUseTable(cbbTable);
         int u = 0;
         for (HashMap t : total) {
             u = Integer.parseInt((String) t.get("isUsing"));
         }
-        if (u == 1 && i == -1) {
-            JOptionPane.showMessageDialog(null, "This table is using");
-        } else {
-
-            // this model is to make a row to get a value from submit
-            model.addRow(new Object[0]);
-            //(thing we want to get,row,column(1 is place for get order))
-            model.setValueAt(line, line - 1, 0); // line+1 because line is start from 0
-            model.setValueAt(cbbMenu.getSelectedItem().toString(), line - 1, 1);
-            model.setValueAt(spnAmount.getValue(), line - 1, 2);
-            model.setValueAt(cbbTable.getSelectedItem().toString(), line - 1, 3);
-
-            String use = "UPDATE `RESTAURANT_Tables` SET `isUsing`= 1 WHERE TABLENUM = " + cbbTable.getSelectedItem().toString();
-            db.executeQuery(use);
-            String menu = cbbMenu.getSelectedItem().toString();
-            int amount = Integer.parseInt(spnAmount.getValue().toString());
-            int tableNo = Integer.parseInt(cbbTable.getSelectedItem().toString());
-            String keep = "INSERT INTO `RESTAURANT_Keeper`(`NO`, `ORDER`, `AMOUNT`, `TABLENUM`) VALUES "
-                    + " ( " + line + " ,' " + menu + " ', " + amount + " , " + tableNo + ");";
-            db.executeQuery(keep);
-            String pop = "INSERT INTO `RESTAURANT_mostPopular`(`ORDER`, `AMOUNT`) VALUES "
-                    + "('" + menu + " ',' " + amount + "');";
-            db.executeQuery(pop);
-            db.disconnect();
-            line++; //for add new row for data
-        }
+       line = controller.orderMenu(u, i, line, cbbMenu, model, cbbTable, spnAmount);
     }//GEN-LAST:event_btnSubmitMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (line - 1 > 0) {
-            model.removeRow(line - 2);
-            line--;
-            CSDbDelegate db = new CSDbDelegate("csprog-in.sit.kmutt.ac.th", "3306", "CSC105_G2", "csc105_2014", "csc105");
-            System.out.println(db.connect());
-            String menu = cbbMenu.getSelectedItem().toString();
-            int amount = Integer.parseInt(spnAmount.getValue().toString());
-            int tableNo = Integer.parseInt(cbbTable.getSelectedItem().toString());
-            String keep = "DELETE FROM `RESTAURANT_Keeper` WHERE NO = " + (line);
-            String use = "UPDATE `RESTAURANT_Tables` SET `isUsing`= 0 WHERE TABLENUM = " + cbbTable.getSelectedItem().toString();
-            db.executeQuery(keep);
-            db.executeQuery(use);
-            db.disconnect();
-        }
+        line = controller.doUndo(model, cbbMenu, cbbTable, spnAmount, line);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnPopMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPopMouseClicked
