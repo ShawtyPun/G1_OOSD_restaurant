@@ -97,6 +97,7 @@ public class Order extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblOrder);
 
         btnBill.setFont(new java.awt.Font("Impact", 0, 40)); // NOI18N
+        btnBill.setForeground(java.awt.Color.red);
         btnBill.setText("BILLING");
         btnBill.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -105,6 +106,7 @@ public class Order extends javax.swing.JFrame {
         });
 
         btnReserve.setFont(new java.awt.Font("Impact", 0, 40)); // NOI18N
+        btnReserve.setForeground(java.awt.Color.red);
         btnReserve.setText("RESERVATION");
         btnReserve.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -113,6 +115,7 @@ public class Order extends javax.swing.JFrame {
         });
 
         btnRevenue.setFont(new java.awt.Font("Impact", 0, 40)); // NOI18N
+        btnRevenue.setForeground(java.awt.Color.red);
         btnRevenue.setText("REVENUE");
         btnRevenue.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -120,13 +123,13 @@ public class Order extends javax.swing.JFrame {
             }
         });
 
-        cbbMenu.setFont(new java.awt.Font("Thonburi", 0, 15)); // NOI18N
+        cbbMenu.setFont(new java.awt.Font("Thonburi", 0, 18)); // NOI18N
         cbbMenu.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Fried_rice(with egg,pork,chicken)", "Fried_rice(with squid,shrimp)", "Macaroni_Soup(creamy/tomato/chicken soup)", "Pizza(L)", "Pizza(M)", "Rice_with_fried_pork_with_pepper_and_garlic", "Spaghetti_Bolognese", "Spaghetti_Carbonara", "Tom_Yum" }));
 
         jLabel2.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel2.setText("Menu :");
 
-        spnAmount.setFont(new java.awt.Font("Al Bayan", 0, 18)); // NOI18N
+        spnAmount.setFont(new java.awt.Font("Thonburi", 0, 18)); // NOI18N
         spnAmount.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
 
         jLabel3.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
@@ -143,10 +146,10 @@ public class Order extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel4.setText("TableNum :");
 
-        cbbTable.setFont(new java.awt.Font("Lucida Grande", 0, 15)); // NOI18N
+        cbbTable.setFont(new java.awt.Font("Thonburi", 0, 18)); // NOI18N
         cbbTable.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
 
-        jButton1.setFont(new java.awt.Font("Thonburi", 0, 13)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Thonburi", 0, 18)); // NOI18N
         jButton1.setText("Undo");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -154,7 +157,7 @@ public class Order extends javax.swing.JFrame {
             }
         });
 
-        btnPop.setFont(new java.awt.Font("Thonburi", 0, 13)); // NOI18N
+        btnPop.setFont(new java.awt.Font("Thonburi", 0, 18)); // NOI18N
         btnPop.setLabel("The most popular menu~!!!");
         btnPop.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -199,7 +202,7 @@ public class Order extends javax.swing.JFrame {
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(50, 50, 50)
                         .addComponent(btnPop)))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

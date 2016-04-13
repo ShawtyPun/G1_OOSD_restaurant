@@ -70,6 +70,7 @@ public class Billing extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        cbbTable.setFont(new java.awt.Font("Thonburi", 0, 18)); // NOI18N
         cbbTable.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
         cbbTable.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,9 +78,10 @@ public class Billing extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Impact", 0, 48)); // NOI18N
         jLabel1.setText("BILLING");
 
+        jLabel2.setFont(new java.awt.Font("Thonburi", 0, 18)); // NOI18N
         jLabel2.setText("Table :");
 
         tblBill.setModel(new javax.swing.table.DefaultTableModel(
@@ -100,16 +102,17 @@ public class Billing extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblBill);
 
-        jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
         jLabel3.setText("Total :");
 
-        lbTotal.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        lbTotal.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
         lbTotal.setText("...........");
 
-        jLabel5.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
         jLabel5.setText("Baht");
 
-        btnOrder.setFont(new java.awt.Font("Lucida Grande", 0, 40)); // NOI18N
+        btnOrder.setFont(new java.awt.Font("Impact", 0, 40)); // NOI18N
+        btnOrder.setForeground(java.awt.Color.red);
         btnOrder.setText("ORDER");
         btnOrder.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -117,7 +120,8 @@ public class Billing extends javax.swing.JFrame {
             }
         });
 
-        btnReserve.setFont(new java.awt.Font("Lucida Grande", 0, 40)); // NOI18N
+        btnReserve.setFont(new java.awt.Font("Impact", 0, 40)); // NOI18N
+        btnReserve.setForeground(java.awt.Color.red);
         btnReserve.setText("RESERVATION");
         btnReserve.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -125,7 +129,8 @@ public class Billing extends javax.swing.JFrame {
             }
         });
 
-        btnRevenue.setFont(new java.awt.Font("Lucida Grande", 0, 40)); // NOI18N
+        btnRevenue.setFont(new java.awt.Font("Impact", 0, 40)); // NOI18N
+        btnRevenue.setForeground(java.awt.Color.red);
         btnRevenue.setText("REVENUE");
         btnRevenue.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -133,6 +138,7 @@ public class Billing extends javax.swing.JFrame {
             }
         });
 
+        btnCheck.setFont(new java.awt.Font("Thonburi", 0, 18)); // NOI18N
         btnCheck.setText("Check");
         btnCheck.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -196,7 +202,7 @@ public class Billing extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(lbTotal)
                     .addComponent(jLabel5))
-                .addGap(0, 50, Short.MAX_VALUE))
+                .addGap(0, 42, Short.MAX_VALUE))
         );
 
         pack();

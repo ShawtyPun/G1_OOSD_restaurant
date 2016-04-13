@@ -67,10 +67,11 @@ public class Revenue extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Impact", 0, 48)); // NOI18N
         jLabel1.setText("REVENUE");
 
-        btnOrder.setFont(new java.awt.Font("Lucida Grande", 0, 40)); // NOI18N
+        btnOrder.setFont(new java.awt.Font("Impact", 0, 40)); // NOI18N
+        btnOrder.setForeground(java.awt.Color.red);
         btnOrder.setText("ORDER");
         btnOrder.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -78,15 +79,22 @@ public class Revenue extends javax.swing.JFrame {
             }
         });
 
-        btnBill.setFont(new java.awt.Font("Lucida Grande", 0, 40)); // NOI18N
+        btnBill.setFont(new java.awt.Font("Impact", 0, 40)); // NOI18N
+        btnBill.setForeground(java.awt.Color.red);
         btnBill.setText("BILLING");
         btnBill.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnBillMouseClicked(evt);
             }
         });
+        btnBill.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBillActionPerformed(evt);
+            }
+        });
 
-        btnReserve.setFont(new java.awt.Font("Lucida Grande", 0, 40)); // NOI18N
+        btnReserve.setFont(new java.awt.Font("Impact", 0, 40)); // NOI18N
+        btnReserve.setForeground(java.awt.Color.red);
         btnReserve.setText("RESERVATION");
         btnReserve.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -112,6 +120,7 @@ public class Revenue extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblRevenue);
 
+        btnShowAll.setFont(new java.awt.Font("Thonburi", 0, 13)); // NOI18N
         btnShowAll.setText("Show an income");
         btnShowAll.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,15 +128,16 @@ public class Revenue extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
         jLabel3.setText("Total :");
 
-        lbTotal.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        lbTotal.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
         lbTotal.setText("...........");
 
-        jLabel5.setFont(new java.awt.Font("Lucida Grande", 0, 24)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
         jLabel5.setText("Baht");
 
+        btnReset.setFont(new java.awt.Font("Thonburi", 0, 18)); // NOI18N
         btnReset.setText("RESET!!!");
         btnReset.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -196,7 +206,7 @@ public class Revenue extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(btnShowAll)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         pack();
@@ -251,6 +261,10 @@ public class Revenue extends javax.swing.JFrame {
     private void btnResetMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnResetMouseClicked
         controler.setNewRevenue(model, lbTotal);
     }//GEN-LAST:event_btnResetMouseClicked
+
+    private void btnBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBillActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBillActionPerformed
     
     private void setTableSize() {
         tblRevenue.getColumnModel().getColumn(0).setPreferredWidth(10);

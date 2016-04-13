@@ -76,9 +76,10 @@ public class Reservation extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 48)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Impact", 0, 48)); // NOI18N
         jLabel1.setText("RESERVATION");
 
+        tblReserve.setFont(new java.awt.Font("Thonburi", 0, 12)); // NOI18N
         tblReserve.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -97,16 +98,26 @@ public class Reservation extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblReserve);
 
+        jLabel2.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel2.setText("Name :");
 
+        jLabel3.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel3.setText("Time :");
 
+        jLabel4.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel4.setText("Date and Time:");
 
+        tfName.setFont(new java.awt.Font("Thonburi", 0, 18)); // NOI18N
+
+        tfDate.setFont(new java.awt.Font("Thonburi", 0, 18)); // NOI18N
+
+        tfTime.setFont(new java.awt.Font("Thonburi", 0, 18)); // NOI18N
         tfTime.setText("00:00:00");
 
+        jLabel5.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel5.setText("PeopleNum :");
 
+        btnSubmit.setFont(new java.awt.Font("Thonburi", 0, 18)); // NOI18N
         btnSubmit.setText("Submit");
         btnSubmit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -114,7 +125,8 @@ public class Reservation extends javax.swing.JFrame {
             }
         });
 
-        btnOrder.setFont(new java.awt.Font("Lucida Grande", 0, 40)); // NOI18N
+        btnOrder.setFont(new java.awt.Font("Impact", 0, 40)); // NOI18N
+        btnOrder.setForeground(java.awt.Color.red);
         btnOrder.setText("ORDER");
         btnOrder.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -122,7 +134,8 @@ public class Reservation extends javax.swing.JFrame {
             }
         });
 
-        btnBill.setFont(new java.awt.Font("Lucida Grande", 0, 40)); // NOI18N
+        btnBill.setFont(new java.awt.Font("Impact", 0, 40)); // NOI18N
+        btnBill.setForeground(java.awt.Color.red);
         btnBill.setText("BILLING");
         btnBill.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -130,7 +143,8 @@ public class Reservation extends javax.swing.JFrame {
             }
         });
 
-        btnRevenue.setFont(new java.awt.Font("Lucida Grande", 0, 40)); // NOI18N
+        btnRevenue.setFont(new java.awt.Font("Impact", 0, 40)); // NOI18N
+        btnRevenue.setForeground(java.awt.Color.red);
         btnRevenue.setText("REVENUE");
         btnRevenue.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -138,6 +152,7 @@ public class Reservation extends javax.swing.JFrame {
             }
         });
 
+        btnReset.setFont(new java.awt.Font("Thonburi", 0, 18)); // NOI18N
         btnReset.setText("RESET!!!");
         btnReset.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -145,6 +160,7 @@ public class Reservation extends javax.swing.JFrame {
             }
         });
 
+        btnShow.setFont(new java.awt.Font("Thonburi", 0, 18)); // NOI18N
         btnShow.setText("Show all");
         btnShow.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -152,6 +168,7 @@ public class Reservation extends javax.swing.JFrame {
             }
         });
 
+        tfTable.setFont(new java.awt.Font("Thonburi", 0, 18)); // NOI18N
         tfTable.setText("2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -183,12 +200,12 @@ public class Reservation extends javax.swing.JFrame {
                                 .addComponent(btnSubmit)))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(75, 75, 75)
+                        .addGap(71, 71, 71)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnBill)
                             .addComponent(btnOrder)
                             .addComponent(btnRevenue))
-                        .addContainerGap(17, Short.MAX_VALUE))
+                        .addContainerGap(58, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnReset))))
@@ -229,7 +246,7 @@ public class Reservation extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(tfTable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnSubmit)
                 .addGap(26, 26, 26))
         );
