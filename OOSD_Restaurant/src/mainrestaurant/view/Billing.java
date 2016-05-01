@@ -3,8 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mainrestaurant;
+package mainrestaurant.view;
 
+import mainrestaurant.view.Order;
+import mainrestaurant.view.Reservation;
+import mainrestaurant.view.Revenue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;

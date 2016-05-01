@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mainrestaurant;
+package mainrestaurant.view;
 
+import mainrestaurant.view.Reservation;
+import mainrestaurant.view.Revenue;
 import edu.sit.cs.db.CSDbDelegate;
 import java.awt.Component;
 import java.awt.Font;
@@ -131,7 +133,7 @@ public class Order extends javax.swing.JFrame {
         jLabel2.setText("Menu :");
 
         spnAmount.setFont(new java.awt.Font("Thonburi", 0, 18)); // NOI18N
-        spnAmount.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+        spnAmount.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
 
         jLabel3.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel3.setText("Amount :");

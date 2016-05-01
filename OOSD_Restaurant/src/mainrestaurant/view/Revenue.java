@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mainrestaurant;
+package mainrestaurant.view;
 
 import edu.sit.cs.db.CSDbDelegate;
 import java.awt.Font;
