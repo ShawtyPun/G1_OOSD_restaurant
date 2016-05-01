@@ -14,6 +14,9 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import mainrestaurant.model.DBMethod;
+import mainrestaurant.model.KeeperModel;
+import mainrestaurant.model.OrderModel;
+import mainrestaurant.model.TableModel;
 
 /**
  *
@@ -52,24 +55,24 @@ public class BillingController {
             line=0;
         }
         
-        ArrayList<HashMap> order = db.getTableDB(cbbTable);
+        ArrayList<KeeperModel> order = db.getTableDB(cbbTable);
         int orderPrice = 0;
         int amount = 0;
         int sum = 0;
         
-        for (HashMap p : order) {
-            String getOrder = (String) p.get("ORDER");
-            ArrayList<HashMap> menu = db.getBillOrder(getOrder);
-            for (HashMap t : menu) {
-                orderPrice = Integer.valueOf((String) t.get("price"));
+        for (KeeperModel p : order) {
+            String getOrder = (String) p.getOrder();
+            ArrayList<OrderModel> menu = db.getBillOrder(getOrder);
+            for (OrderModel t : menu) {
+                orderPrice = Integer.valueOf((String) t.getPrice());
             }
             
-            amount = (Integer.parseInt((String) p.get("AMOUNT")));
+            amount = (Integer.parseInt((String) p.getAmount()));
             sum = sum + (orderPrice * amount);
             model.addRow(new Object[0]);
             model.setValueAt(line + 1, line, 0);
-            model.setValueAt((String) p.get("ORDER"), line, 1);
-            model.setValueAt((String) p.get("AMOUNT"), line, 2);
+            model.setValueAt((String) p.getOrder(), line, 1);
+            model.setValueAt((String) p.getAmount(), line, 2);
             model.setValueAt(orderPrice, line, 3);
             model.setValueAt(orderPrice * amount, line, 4);
             line++;

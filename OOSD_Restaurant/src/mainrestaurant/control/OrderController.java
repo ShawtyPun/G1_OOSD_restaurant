@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JSpinner;
 import javax.swing.table.DefaultTableModel;
 import mainrestaurant.model.DBMethod;
+import mainrestaurant.model.TableModel;
 
 /**
  *
@@ -43,7 +44,7 @@ public class OrderController {
         return line;
     }
     
-    public ArrayList<HashMap> getUseTable(JComboBox cbbTable) {
+    public ArrayList<TableModel> getUseTable(JComboBox cbbTable) {
         return db.getUseTableDB(cbbTable);
     }
 

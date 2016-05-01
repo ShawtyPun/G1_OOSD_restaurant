@@ -18,6 +18,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import mainrestaurant.control.OrderController;
+import mainrestaurant.model.TableModel;
 
 /**
  *
@@ -290,10 +291,10 @@ public class Order extends javax.swing.JFrame {
     int line = 1; // this line is for run row
     private void btnSubmitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSubmitMouseClicked
         int i = model.getRowCount() - 1;
-        ArrayList<HashMap> total = controller.getUseTable(cbbTable);
+        ArrayList<TableModel> total = controller.getUseTable(cbbTable);
         int u = 0;
-        for (HashMap t : total) {
-            u = Integer.parseInt((String) t.get("isUsing"));
+        for (TableModel t : total) {
+            u = Integer.parseInt((String) t.getIsUsing());
         }
        line = controller.orderMenu(u, i, line, cbbMenu, model, cbbTable, spnAmount);
     }//GEN-LAST:event_btnSubmitMouseClicked

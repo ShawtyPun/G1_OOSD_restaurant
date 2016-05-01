@@ -11,6 +11,7 @@ import java.util.HashMap;
 import javax.swing.JLabel;
 import javax.swing.table.DefaultTableModel;
 import mainrestaurant.model.DBMethod;
+import mainrestaurant.model.RevenueModel;
 
 /**
  *
@@ -30,14 +31,14 @@ public class RevenueController {
         }
     }
     
-    public ArrayList<HashMap> getAllBill() {
+    public ArrayList<RevenueModel> getAllBill() {
         return db.getAllBill();
     }
     
-    public void showRevenueList(DefaultTableModel model, JLabel lbTotal, ArrayList<HashMap> total) throws NumberFormatException {
-        for (HashMap t : total) {
-            String getDT = (String) t.get("DateTime");
-            int income = Integer.parseInt((String) t.get("TOTAL"));
+    public void showRevenueList(DefaultTableModel model, JLabel lbTotal, ArrayList<RevenueModel> total) throws NumberFormatException {
+        for (RevenueModel t : total) {
+            String getDT = (String) t.getDate();
+            int income = Integer.parseInt(t.getTotal());
             model.addRow(new Object[0]);
             model.setValueAt(line, line - 1, 0);
             model.setValueAt(getDT, line - 1, 1);

@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author ngunngun
  */
-public class DBMethod extends CSDbDelegate{
+public class DBMethod extends CSDbDelegate implements Services {
     private CSDbDelegate dbb;
     
     public DBMethod() {
@@ -41,12 +41,20 @@ public class DBMethod extends CSDbDelegate{
     
     //REVENUE
     
-    public ArrayList<HashMap> getAllBill() {
+    @Override
+    public ArrayList<RevenueModel> getAllBill() {
         dbConnect();
         String bill = "SELECT * FROM RESTAURANT_Income";
-        ArrayList<HashMap> total = dbb.queryRows(bill);
+        ArrayList<RevenueModel> billList = new ArrayList<RevenueModel>();
+        ArrayList<HashMap> bills = dbb.queryRows(bill);
+        for(HashMap t : bills){
+            String no = (String)t.get("BillingId");
+            String date = (String)t.get("DateTime");
+            String total = (String)t.get("TOTAL");
+            billList.add(new RevenueModel(no, date, total));
+        }
         dbDisConnect();
-        return total;
+        return billList;
     }
         
     public void clearRevenue() {
@@ -58,14 +66,23 @@ public class DBMethod extends CSDbDelegate{
         dbDisConnect();
     }
     
-    
     //RESERVATION
-    public ArrayList<HashMap> getAllReserver() {
+    @Override
+    public ArrayList<ReservationModel> getAllReserver() {
         dbConnect();
         String re = "SELECT * FROM RESTAURANT_Reservation";
+        ArrayList<ReservationModel> reserver = new ArrayList<ReservationModel>();
         ArrayList<HashMap> all = dbb.queryRows(re);
+        for(HashMap t : all){
+            String no = (String)t.get("NUM");
+            String name = (String)t.get("NAME");
+            String date = (String)t.get("DATE");
+            String time = (String)t.get("TIME");
+            String peopleNo = (String)t.get("PEOPLE");
+            reserver.add(new ReservationModel(no, name, date, time, peopleNo));
+        }
         dbDisConnect();
-        return all;
+        return reserver;
     }
     
     public void addReserverDB(JTextField tfName, JTextField tfDate, JTextField tfTime, JTextField tfTable) {
@@ -116,12 +133,19 @@ public class DBMethod extends CSDbDelegate{
         dbDisConnect();
     }
      
-    public ArrayList<HashMap> getUseTableDB(JComboBox cbbTable) {
+    public ArrayList<TableModel> getUseTableDB(JComboBox cbbTable) {
         dbConnect();
         String check = "SELECT isUsing FROM RESTAURANT_Tables WHERE TABLENUM = " + cbbTable.getSelectedItem().toString();
-        ArrayList<HashMap> total = dbb.queryRows(check);
+        ArrayList<TableModel> table = new ArrayList<TableModel>();
+        ArrayList<HashMap> a = dbb.queryRows(check);
+        for(HashMap t : a){
+            String tableNo = (String)t.get("tableNum");
+            String people = (String)t.get("people");
+            String isUsing = (String)t.get("isUsing");
+            table.add(new TableModel(tableNo, people, isUsing));
+        }
         dbDisConnect();
-        return total;
+        return table;
     }
     
     public void setUseTable(JComboBox cbbTable) {
@@ -154,21 +178,35 @@ public class DBMethod extends CSDbDelegate{
         dbDisConnect();
     }
     
-    public ArrayList<HashMap> getTableDB(JComboBox cbbTable){
+    public ArrayList<KeeperModel> getTableDB(JComboBox cbbTable){
         dbConnect();
         String table = "SELECT * FROM RESTAURANT_Keeper WHERE TABLENUM = " + cbbTable.getSelectedItem().toString();
-        ArrayList<HashMap> order = dbb.queryRows(table);
+        ArrayList<KeeperModel> tableList = new ArrayList<KeeperModel>();
+        ArrayList<HashMap> orders = dbb.queryRows(table);
+        for(HashMap t : orders){
+            String no = (String)t.get("NO");
+            String order = (String)t.get("ORDER");
+            String amount = (String)t.get("AMOUNT");
+            String tableno = (String)t.get("TABLENUM");
+            tableList.add(new KeeperModel(no, order, amount, tableno));
+        }
+        dbDisConnect();
+        return tableList;
+    }
+    
+    public ArrayList<OrderModel> getBillOrder(String getOrder) {
+        dbConnect();
+        String sql = "SELECT price FROM RESTAURANT_Order WHERE list = '" + getOrder.trim() + "'";
+        ArrayList<OrderModel> order = new ArrayList<OrderModel>();
+        ArrayList<HashMap> menu = dbb.queryRows(sql);
+        for(HashMap t : menu){
+            String no = (String)t.get("num");
+            String list = (String)t.get("list");
+            String price = (String)t.get("price");
+            order.add(new OrderModel(no, list, price));
+        }
         dbDisConnect();
         return order;
     }
-    
-    public ArrayList<HashMap> getBillOrder(String getOrder) {
-        dbConnect();
-        String price = "SELECT price FROM RESTAURANT_Order WHERE list = '" + getOrder.trim() + "'";
-        ArrayList<HashMap> menu = dbb.queryRows(price);
-        dbDisConnect();
-        return menu;
-    }
-    
     
 }

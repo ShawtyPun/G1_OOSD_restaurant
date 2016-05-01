@@ -16,6 +16,7 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import mainrestaurant.control.RevenueController;
 import mainrestaurant.model.DBMethod;
+import mainrestaurant.model.RevenueModel;
 
 /**
  *
@@ -253,7 +254,7 @@ public class Revenue extends javax.swing.JFrame {
 
     private void btnShowAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowAllActionPerformed
         controler.showDefaultTotal(model, lbTotal);
-        ArrayList<HashMap> total = controler.getAllBill();
+        ArrayList<RevenueModel> total = controler.getAllBill();
         controler.showRevenueList(model, lbTotal, total);
 
     }//GEN-LAST:event_btnShowAllActionPerformed

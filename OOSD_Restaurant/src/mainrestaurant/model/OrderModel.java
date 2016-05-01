@@ -9,15 +9,15 @@ package mainrestaurant.model;
  *
  * @author ngunngun
  */
-public class RevenueModel {
+public class OrderModel {
     private String no;
-    private String date;
-    private String total;
+    private String list;
+    private String price;
 
-    public RevenueModel(String no, String date, String total) {
+    public OrderModel(String no, String list, String price) {
         this.no = no;
-        this.date = date;
-        this.total = total;
+        this.list = list;
+        this.price = price;
     }
 
     public String getNo() {
@@ -28,23 +28,23 @@ public class RevenueModel {
         this.no = no;
     }
 
-    public String getDate() {
-        return date;
+    public String getList() {
+        return list;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setList(String list) {
+        this.list = list;
     }
 
-    public String getTotal() {
-        return total;
+    public String getPrice() {
+        return price;
     }
 
-    public void setTotal(String total) {
-        this.total = total;
+    public void setPrice(String price) {
+        this.price = price;
     }
     
-    public RevenueModel(){
+    public OrderModel(){
         
     }
 }

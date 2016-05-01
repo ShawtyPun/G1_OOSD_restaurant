@@ -11,6 +11,7 @@ import java.util.HashMap;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import mainrestaurant.model.DBMethod;
+import mainrestaurant.model.ReservationModel;
 
 /**
  *
@@ -28,12 +29,12 @@ public class ReservationController {
 
     
     
-    public void showTableReserve(DefaultTableModel model, ArrayList<HashMap> all) throws NumberFormatException {
-        for (HashMap t : all) {
-            String name = (String) t.get("NAME");
-            String date = (String) t.get("DATE");
-            String time = (String) t.get("TIME");
-            int human = Integer.parseInt((String) t.get("PEOPLE"));
+    public void showTableReserve(DefaultTableModel model, ArrayList<ReservationModel> all) throws NumberFormatException {
+        for (ReservationModel t : all) {
+            String name = (String) t.getName();
+            String date = (String) t.getDate();
+            String time = (String) t.getTime();
+            int human = Integer.parseInt((String) t.getPeopleNo());
             model.addRow(new Object[0]);
             model.setValueAt(line, line - 1, 0);
             model.setValueAt(name, line - 1, 1);
