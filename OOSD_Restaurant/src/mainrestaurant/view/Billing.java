@@ -70,8 +70,10 @@ public class Billing extends javax.swing.JFrame {
         btnReserve = new javax.swing.JButton();
         btnRevenue = new javax.swing.JButton();
         btnCheck = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         cbbTable.setFont(new java.awt.Font("Thonburi", 0, 18)); // NOI18N
         cbbTable.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
@@ -80,12 +82,15 @@ public class Billing extends javax.swing.JFrame {
                 cbbTableActionPerformed(evt);
             }
         });
+        getContentPane().add(cbbTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(99, 98, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Impact", 0, 48)); // NOI18N
         jLabel1.setText("BILLING");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 32, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Thonburi", 0, 18)); // NOI18N
         jLabel2.setText("Table :");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 98, -1, -1));
 
         tblBill.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -105,14 +110,19 @@ public class Billing extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblBill);
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 132, -1, 331));
+
         jLabel3.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
         jLabel3.setText("Total :");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 518, -1, -1));
 
         lbTotal.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
         lbTotal.setText("...........");
+        getContentPane().add(lbTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(131, 518, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
         jLabel5.setText("Baht");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 518, -1, -1));
 
         btnOrder.setFont(new java.awt.Font("Impact", 0, 40)); // NOI18N
         btnOrder.setForeground(java.awt.Color.red);
@@ -122,6 +132,7 @@ public class Billing extends javax.swing.JFrame {
                 btnOrderMouseClicked(evt);
             }
         });
+        getContentPane().add(btnOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(527, 301, -1, -1));
 
         btnReserve.setFont(new java.awt.Font("Impact", 0, 40)); // NOI18N
         btnReserve.setForeground(java.awt.Color.red);
@@ -131,6 +142,7 @@ public class Billing extends javax.swing.JFrame {
                 btnReserveMouseClicked(evt);
             }
         });
+        getContentPane().add(btnReserve, new org.netbeans.lib.awtextra.AbsoluteConstraints(527, 408, -1, -1));
 
         btnRevenue.setFont(new java.awt.Font("Impact", 0, 40)); // NOI18N
         btnRevenue.setForeground(java.awt.Color.red);
@@ -140,6 +152,7 @@ public class Billing extends javax.swing.JFrame {
                 btnRevenueMouseClicked(evt);
             }
         });
+        getContentPane().add(btnRevenue, new org.netbeans.lib.awtextra.AbsoluteConstraints(527, 499, -1, -1));
 
         btnCheck.setFont(new java.awt.Font("Thonburi", 0, 18)); // NOI18N
         btnCheck.setText("Check");
@@ -148,65 +161,11 @@ public class Billing extends javax.swing.JFrame {
                 btnCheckMouseClicked(evt);
             }
         });
+        getContentPane().add(btnCheck, new org.netbeans.lib.awtextra.AbsoluteConstraints(527, 132, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(32, 32, 32)
-                                .addComponent(lbTotal)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel5))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cbbTable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnRevenue)
-                    .addComponent(btnReserve)
-                    .addComponent(btnOrder)
-                    .addComponent(btnCheck))
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbbTable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnCheck)
-                        .addGap(135, 135, 135)
-                        .addComponent(btnOrder)
-                        .addGap(49, 49, 49)
-                        .addComponent(btnReserve))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRevenue)
-                    .addComponent(jLabel3)
-                    .addComponent(lbTotal)
-                    .addComponent(jLabel5))
-                .addGap(0, 42, Short.MAX_VALUE))
-        );
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainrestaurant/view/pastel-teal-canvas-fabric-texture.jpg"))); // NOI18N
+        jLabel4.setText("jLabel4");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -320,6 +279,7 @@ public class Billing extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbTotal;
