@@ -74,11 +74,14 @@ public class Order extends javax.swing.JFrame {
         cbbTable = new javax.swing.JComboBox();
         jButton1 = new javax.swing.JButton();
         btnPop = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Impact", 0, 48)); // NOI18N
         jLabel1.setText("ORDER");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 32, -1, -1));
 
         tblOrder.setFont(new java.awt.Font("Thonburi", 0, 12)); // NOI18N
         tblOrder.setModel(new javax.swing.table.DefaultTableModel(
@@ -99,6 +102,8 @@ public class Order extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblOrder);
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 110, 450, 177));
+
         btnBill.setFont(new java.awt.Font("Impact", 0, 40)); // NOI18N
         btnBill.setForeground(java.awt.Color.red);
         btnBill.setText("BILLING");
@@ -107,6 +112,7 @@ public class Order extends javax.swing.JFrame {
                 btnBillMouseClicked(evt);
             }
         });
+        getContentPane().add(btnBill, new org.netbeans.lib.awtextra.AbsoluteConstraints(601, 325, -1, -1));
 
         btnReserve.setFont(new java.awt.Font("Impact", 0, 40)); // NOI18N
         btnReserve.setForeground(java.awt.Color.red);
@@ -116,6 +122,7 @@ public class Order extends javax.swing.JFrame {
                 btnReserveMouseClicked(evt);
             }
         });
+        getContentPane().add(btnReserve, new org.netbeans.lib.awtextra.AbsoluteConstraints(507, 412, -1, -1));
 
         btnRevenue.setFont(new java.awt.Font("Impact", 0, 40)); // NOI18N
         btnRevenue.setForeground(java.awt.Color.red);
@@ -125,18 +132,23 @@ public class Order extends javax.swing.JFrame {
                 btnRevenueMouseClicked(evt);
             }
         });
+        getContentPane().add(btnRevenue, new org.netbeans.lib.awtextra.AbsoluteConstraints(583, 501, -1, -1));
 
         cbbMenu.setFont(new java.awt.Font("Thonburi", 0, 18)); // NOI18N
         cbbMenu.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Fried_rice(with egg,pork,chicken)", "Fried_rice(with squid,shrimp)", "Macaroni_Soup(creamy/tomato/chicken soup)", "Pizza(L)", "Pizza(M)", "Rice_with_fried_pork_with_pepper_and_garlic", "Spaghetti_Bolognese", "Spaghetti_Carbonara", "Tom_Yum" }));
+        getContentPane().add(cbbMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 335, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel2.setText("Menu :");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 336, -1, -1));
 
         spnAmount.setFont(new java.awt.Font("Thonburi", 0, 18)); // NOI18N
-        spnAmount.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
+        spnAmount.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+        getContentPane().add(spnAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 383, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel3.setText("Amount :");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 389, -1, -1));
 
         btnSubmit.setFont(new java.awt.Font("Thonburi", 0, 18)); // NOI18N
         btnSubmit.setText("Submit");
@@ -145,12 +157,15 @@ public class Order extends javax.swing.JFrame {
                 btnSubmitMouseClicked(evt);
             }
         });
+        getContentPane().add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 506, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel4.setText("TableNum :");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 438, -1, -1));
 
         cbbTable.setFont(new java.awt.Font("Thonburi", 0, 18)); // NOI18N
         cbbTable.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+        getContentPane().add(cbbTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 437, -1, -1));
 
         jButton1.setFont(new java.awt.Font("Thonburi", 0, 18)); // NOI18N
         jButton1.setText("Undo");
@@ -159,6 +174,7 @@ public class Order extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(396, 58, -1, -1));
 
         btnPop.setFont(new java.awt.Font("Thonburi", 0, 18)); // NOI18N
         btnPop.setLabel("The most popular menu~!!!");
@@ -167,86 +183,11 @@ public class Order extends javax.swing.JFrame {
                 btnPopMouseClicked(evt);
             }
         });
+        getContentPane().add(btnPop, new org.netbeans.lib.awtextra.AbsoluteConstraints(535, 110, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(btnRevenue)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel2)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(cbbMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(47, 47, 47)
-                            .addComponent(btnBill))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btnSubmit)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel3)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(spnAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel4)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(cbbTable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnReserve)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(50, 50, 50)
-                        .addComponent(btnPop)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jButton1))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(38, 38, 38)
-                                .addComponent(btnBill))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel2)
-                                    .addComponent(cbbMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(20, 20, 20)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel3)
-                                    .addComponent(spnAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel4)
-                                    .addComponent(cbbTable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(41, 41, 41)
-                                .addComponent(btnSubmit))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(29, 29, 29)
-                                .addComponent(btnReserve)
-                                .addGap(31, 31, 31)
-                                .addComponent(btnRevenue))))
-                    .addComponent(btnPop))
-                .addContainerGap(41, Short.MAX_VALUE))
-        );
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainrestaurant/view/pastel-teal-canvas-fabric-texture.jpg"))); // NOI18N
+        jLabel5.setText("jLabel5");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -10, 840, 620));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -374,6 +315,7 @@ public class Order extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSpinner spnAmount;
     private javax.swing.JTable tblOrder;
