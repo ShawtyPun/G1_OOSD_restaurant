@@ -16,7 +16,7 @@ import mainrestaurant.model.RevenueModel;
 
 /**
  *
- * @author ngunngun
+ * @author ShawtyPun
  */
 public class RevenueController {
     int money = 0;
@@ -41,21 +41,21 @@ public class RevenueController {
             String getDT = (String) t.getDate();
             int income = Integer.parseInt(t.getTotal());
             model.addRow(new Object[0]);
-            model.setValueAt(line, line - 1, 0);
-            model.setValueAt(getDT, line - 1, 1);
-            model.setValueAt(income + ".-", line - 1, 2);
+            model.setValueAt(line, line - 1, 0); //line -1, 0 -->if not set as-1 >>>indexoutofbound : 0 is column "no"
+            model.setValueAt(getDT, line - 1, 1); //1 is "date&time" column
+            model.setValueAt(income + ".-", line - 1, 2); //2 is "total" column
             line++;
             
             money = money + income;
             lbTotal.setText("" + money);
-            
         }
     }
     
-    
+    //show warning popup , sure to reset or not
+    //if yes ,clear table data in db 
     public void setNewRevenue(DefaultTableModel model, JLabel lbTotal) {
         if (model.getRowCount() > 0) {
-            int answer = JOptionPane.showConfirmDialog(null, "Do you really want to check bill?", "WARNING!!!",
+            int answer = JOptionPane.showConfirmDialog(null, "Do you really want to reset revenue?", "WARNING!!!",
                 JOptionPane.YES_NO_OPTION,
                 JOptionPane.ERROR_MESSAGE);
             if (answer == JOptionPane.YES_OPTION) {
@@ -65,12 +65,9 @@ public class RevenueController {
             }
             lbTotal.setText("...........");
             } else if (answer == JOptionPane.NO_OPTION) {
-                // User clicked NO.
+                // User clicked NO. >>>do nothing
             }
         }
-        
     }
-
-
     
 }
