@@ -9,6 +9,7 @@ import edu.sit.cs.db.CSDbDelegate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import mainrestaurant.model.DBMethod;
 import mainrestaurant.model.RevenueModel;
@@ -54,12 +55,20 @@ public class RevenueController {
     
     public void setNewRevenue(DefaultTableModel model, JLabel lbTotal) {
         if (model.getRowCount() > 0) {
-            db.clearRevenue();
+            int answer = JOptionPane.showConfirmDialog(null, "Do you really want to check bill?", "WARNING!!!",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.ERROR_MESSAGE);
+            if (answer == JOptionPane.YES_OPTION) {
+                db.clearRevenue();
             for (int i = model.getRowCount() - 1; i >= 0; i--) {
                 model.removeRow(i);
             }
             lbTotal.setText("...........");
+            } else if (answer == JOptionPane.NO_OPTION) {
+                // User clicked NO.
+            }
         }
+        
     }
 
 
