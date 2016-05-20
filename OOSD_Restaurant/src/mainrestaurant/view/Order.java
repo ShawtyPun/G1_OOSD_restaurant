@@ -185,8 +185,8 @@ public class Order extends javax.swing.JFrame {
         });
         getContentPane().add(btnPop, new org.netbeans.lib.awtextra.AbsoluteConstraints(535, 110, -1, -1));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainrestaurant/view/pastel-teal-canvas-fabric-texture.jpg"))); // NOI18N
-        jLabel5.setText("jLabel5");
+        //jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainrestaurant/view/pastel-teal-canvas-fabric-texture.jpg"))); // NOI18N
+        //jLabel5.setText("jLabel5");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -10, 840, 620));
 
         pack();
