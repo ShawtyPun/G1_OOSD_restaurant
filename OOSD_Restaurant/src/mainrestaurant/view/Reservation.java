@@ -171,6 +171,11 @@ public class Reservation extends javax.swing.JFrame {
 
         tfTable.setFont(new java.awt.Font("Thonburi", 0, 18)); // NOI18N
         tfTable.setText("2");
+        tfTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfTableActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -196,9 +201,10 @@ public class Reservation extends javax.swing.JFrame {
                                     .addComponent(tfTime, javax.swing.GroupLayout.Alignment.LEADING))
                                 .addGap(120, 120, 120)
                                 .addComponent(btnShow))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(tfTable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnSubmit)))))
+                            .addComponent(btnSubmit)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(tfTable, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(71, 71, 71)
@@ -206,10 +212,11 @@ public class Reservation extends javax.swing.JFrame {
                             .addComponent(btnBill)
                             .addComponent(btnOrder)
                             .addComponent(btnRevenue))
-                        .addContainerGap(58, Short.MAX_VALUE))
+                        .addContainerGap(53, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnReset))))
+                        .addComponent(btnReset)
+                        .addGap(19, 19, 19))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -243,7 +250,7 @@ public class Reservation extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tfTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addGap(86, 86, 86)
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(tfTable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -323,6 +330,10 @@ public class Reservation extends javax.swing.JFrame {
     private void btnShowMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnShowMouseClicked
         controller.showReserver(model);
     }//GEN-LAST:event_btnShowMouseClicked
+
+    private void tfTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfTableActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfTableActionPerformed
 
     private void setTableSize() {
         tblReserve.getColumnModel().getColumn(0).setPreferredWidth(3);
