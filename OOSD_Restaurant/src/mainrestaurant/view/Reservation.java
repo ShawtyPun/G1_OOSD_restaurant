@@ -74,11 +74,14 @@ public class Reservation extends javax.swing.JFrame {
         btnReset = new javax.swing.JButton();
         btnShow = new javax.swing.JButton();
         tfTable = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Impact", 0, 48)); // NOI18N
         jLabel1.setText("RESERVATION");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 32, -1, -1));
 
         tblReserve.setFont(new java.awt.Font("Thonburi", 0, 12)); // NOI18N
         tblReserve.setModel(new javax.swing.table.DefaultTableModel(
@@ -99,24 +102,36 @@ public class Reservation extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblReserve);
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 110, -1, 286));
+
         jLabel2.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel2.setText("Name :");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(92, 408, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel3.setText("Time :");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 490, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel4.setText("Date and Time:");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 450, -1, -1));
 
         tfName.setFont(new java.awt.Font("Thonburi", 0, 18)); // NOI18N
+        getContentPane().add(tfName, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 402, 92, -1));
 
         tfDate.setFont(new java.awt.Font("Thonburi", 0, 18)); // NOI18N
+        getContentPane().add(tfDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 444, 92, -1));
+        DateFormat dateFormat = new SimpleDateFormat("YYYY-MM-dd");
+        Date date = new Date(); // get current date
+        tfDate.setText(dateFormat.format(date) + "");
 
         tfTime.setFont(new java.awt.Font("Thonburi", 0, 18)); // NOI18N
         tfTime.setText("00:00:00");
+        getContentPane().add(tfTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 484, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel5.setText("PeopleNum :");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 555, -1, -1));
 
         btnSubmit.setFont(new java.awt.Font("Thonburi", 0, 18)); // NOI18N
         btnSubmit.setText("Submit");
@@ -125,6 +140,7 @@ public class Reservation extends javax.swing.JFrame {
                 btnSubmitMouseClicked(evt);
             }
         });
+        getContentPane().add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(141, 591, -1, -1));
 
         btnOrder.setFont(new java.awt.Font("Impact", 0, 40)); // NOI18N
         btnOrder.setForeground(java.awt.Color.red);
@@ -134,6 +150,7 @@ public class Reservation extends javax.swing.JFrame {
                 btnOrderMouseClicked(evt);
             }
         });
+        getContentPane().add(btnOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 110, -1, -1));
 
         btnBill.setFont(new java.awt.Font("Impact", 0, 40)); // NOI18N
         btnBill.setForeground(java.awt.Color.red);
@@ -143,6 +160,7 @@ public class Reservation extends javax.swing.JFrame {
                 btnBillMouseClicked(evt);
             }
         });
+        getContentPane().add(btnBill, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 209, -1, -1));
 
         btnRevenue.setFont(new java.awt.Font("Impact", 0, 40)); // NOI18N
         btnRevenue.setForeground(java.awt.Color.red);
@@ -152,6 +170,7 @@ public class Reservation extends javax.swing.JFrame {
                 btnRevenueMouseClicked(evt);
             }
         });
+        getContentPane().add(btnRevenue, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 316, -1, -1));
 
         btnReset.setFont(new java.awt.Font("Thonburi", 0, 18)); // NOI18N
         btnReset.setText("RESET!!!");
@@ -160,6 +179,7 @@ public class Reservation extends javax.swing.JFrame {
                 btnResetMouseClicked(evt);
             }
         });
+        getContentPane().add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(663, 6, -1, -1));
 
         btnShow.setFont(new java.awt.Font("Thonburi", 0, 18)); // NOI18N
         btnShow.setText("Show all");
@@ -168,93 +188,20 @@ public class Reservation extends javax.swing.JFrame {
                 btnShowMouseClicked(evt);
             }
         });
+        getContentPane().add(btnShow, new org.netbeans.lib.awtextra.AbsoluteConstraints(361, 404, -1, -1));
 
         tfTable.setFont(new java.awt.Font("Thonburi", 0, 18)); // NOI18N
         tfTable.setText("2");
+        tfTable.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfTableActionPerformed(evt);
+            }
+        });
+        getContentPane().add(tfTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 549, 30, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(8, 8, 8)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(tfName, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tfDate, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tfTime, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addGap(120, 120, 120)
-                                .addComponent(btnShow))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(tfTable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnSubmit)))))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnBill)
-                            .addComponent(btnOrder)
-                            .addComponent(btnRevenue))
-                        .addContainerGap(58, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnReset))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnReset)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnOrder)
-                        .addGap(41, 41, 41)
-                        .addComponent(btnBill)
-                        .addGap(49, 49, 49)
-                        .addComponent(btnRevenue)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(tfName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnShow))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(tfDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(4, 4, 4)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(86, 86, 86)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(tfTable, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnSubmit)
-                .addGap(26, 26, 26))
-        );
-
-        DateFormat dateFormat = new SimpleDateFormat("YYYY-MM-dd");
-        Date date = new Date(); // get current date
-        tfDate.setText(dateFormat.format(date) + "");
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainrestaurant/view/pastel-teal-canvas-fabric-texture.jpg"))); // NOI18N
+        jLabel6.setText("jLabel6");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -10, 810, 670));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -324,6 +271,10 @@ public class Reservation extends javax.swing.JFrame {
         controller.showReserver(model);
     }//GEN-LAST:event_btnShowMouseClicked
 
+    private void tfTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfTableActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfTableActionPerformed
+
     private void setTableSize() {
         tblReserve.getColumnModel().getColumn(0).setPreferredWidth(3);
         tblReserve.getColumnModel().getColumn(1).setPreferredWidth(120);
@@ -387,6 +338,7 @@ public class Reservation extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblReserve;
     private javax.swing.JTextField tfDate;
