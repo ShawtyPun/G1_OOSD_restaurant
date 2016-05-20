@@ -54,6 +54,7 @@ public class Revenue extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem1 = new javax.swing.JMenuItem();
         jLabel1 = new javax.swing.JLabel();
         btnOrder = new javax.swing.JButton();
         btnBill = new javax.swing.JButton();
@@ -65,14 +66,18 @@ public class Revenue extends javax.swing.JFrame {
         lbTotal = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         btnReset = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+
+        jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Impact", 0, 48)); // NOI18N
         jLabel1.setText("REVENUE");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 32, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, -1, -1));
 
         btnOrder.setFont(new java.awt.Font("Impact", 0, 40)); // NOI18N
         btnOrder.setForeground(java.awt.Color.red);
@@ -82,7 +87,7 @@ public class Revenue extends javax.swing.JFrame {
                 btnOrderMouseClicked(evt);
             }
         });
-        getContentPane().add(btnOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(495, 98, -1, -1));
+        getContentPane().add(btnOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 200, -1, -1));
 
         btnBill.setFont(new java.awt.Font("Impact", 0, 40)); // NOI18N
         btnBill.setForeground(java.awt.Color.red);
@@ -97,7 +102,7 @@ public class Revenue extends javax.swing.JFrame {
                 btnBillActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBill, new org.netbeans.lib.awtextra.AbsoluteConstraints(495, 187, -1, -1));
+        getContentPane().add(btnBill, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 290, -1, -1));
 
         btnReserve.setFont(new java.awt.Font("Impact", 0, 40)); // NOI18N
         btnReserve.setForeground(java.awt.Color.red);
@@ -107,7 +112,7 @@ public class Revenue extends javax.swing.JFrame {
                 btnReserveMouseClicked(evt);
             }
         });
-        getContentPane().add(btnReserve, new org.netbeans.lib.awtextra.AbsoluteConstraints(495, 276, -1, -1));
+        getContentPane().add(btnReserve, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 370, -1, -1));
 
         tblRevenue.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -136,19 +141,19 @@ public class Revenue extends javax.swing.JFrame {
                 btnShowAllActionPerformed(evt);
             }
         });
-        getContentPane().add(btnShowAll, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 536, -1, -1));
+        getContentPane().add(btnShowAll, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 540, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
         jLabel3.setText("Total :");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(517, 487, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 540, -1, -1));
 
         lbTotal.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
         lbTotal.setText("...........");
-        getContentPane().add(lbTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(607, 487, -1, -1));
+        getContentPane().add(lbTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 540, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
         jLabel5.setText("Baht");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(669, 487, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 540, -1, -1));
 
         btnReset.setFont(new java.awt.Font("Thonburi", 0, 18)); // NOI18N
         btnReset.setText("RESET!!!");
@@ -157,7 +162,13 @@ public class Revenue extends javax.swing.JFrame {
                 btnResetMouseClicked(evt);
             }
         });
-        getContentPane().add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(661, 6, -1, -1));
+        getContentPane().add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 20, -1, -1));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainrestaurant/view/increase-revenue-icon-increase-revenue.jpg.png"))); // NOI18N
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 0, 120, 110));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainrestaurant/view/4chef.png"))); // NOI18N
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 480, 320, 130));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainrestaurant/view/pastel-teal-canvas-fabric-texture.jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -277,6 +288,9 @@ public class Revenue extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbTotal;
     private javax.swing.JTable tblRevenue;

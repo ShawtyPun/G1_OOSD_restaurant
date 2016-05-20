@@ -73,7 +73,10 @@ public class Order extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         cbbTable = new javax.swing.JComboBox();
         jButton1 = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
         btnPop = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -81,7 +84,7 @@ public class Order extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Impact", 0, 48)); // NOI18N
         jLabel1.setText("ORDER");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 32, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 40, -1, -1));
 
         tblOrder.setFont(new java.awt.Font("Thonburi", 0, 12)); // NOI18N
         tblOrder.setModel(new javax.swing.table.DefaultTableModel(
@@ -102,7 +105,7 @@ public class Order extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblOrder);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 110, 450, 177));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 450, 177));
 
         btnBill.setFont(new java.awt.Font("Impact", 0, 40)); // NOI18N
         btnBill.setForeground(java.awt.Color.red);
@@ -157,7 +160,7 @@ public class Order extends javax.swing.JFrame {
                 btnSubmitMouseClicked(evt);
             }
         });
-        getContentPane().add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 506, -1, -1));
+        getContentPane().add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 500, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel4.setText("TableNum :");
@@ -174,8 +177,12 @@ public class Order extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(396, 58, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 500, -1, -1));
 
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainrestaurant/view/waiter-icon-50096.png"))); // NOI18N
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 160, 100, 110));
+
+        btnPop.setBackground(new java.awt.Color(255, 255, 51));
         btnPop.setFont(new java.awt.Font("Thonburi", 0, 18)); // NOI18N
         btnPop.setLabel("The most popular menu~!!!");
         btnPop.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -183,10 +190,21 @@ public class Order extends javax.swing.JFrame {
                 btnPopMouseClicked(evt);
             }
         });
-        getContentPane().add(btnPop, new org.netbeans.lib.awtextra.AbsoluteConstraints(535, 110, -1, -1));
+        btnPop.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPopActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnPop, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 180, -1, -1));
 
-        //jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainrestaurant/view/pastel-teal-canvas-fabric-texture.jpg"))); // NOI18N
-        //jLabel5.setText("jLabel5");
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainrestaurant/view/4chef.png"))); // NOI18N
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 480, 320, 130));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainrestaurant/view/NN.png"))); // NOI18N
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, 120, 110));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainrestaurant/view/pastel-teal-canvas-fabric-texture.jpg"))); // NOI18N
+        jLabel5.setText("jLabel5");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -10, 840, 620));
 
         pack();
@@ -249,6 +267,10 @@ public class Order extends javax.swing.JFrame {
     private void btnPopMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPopMouseClicked
         controller.showPopularMenu();
     }//GEN-LAST:event_btnPopMouseClicked
+
+    private void btnPopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPopActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPopActionPerformed
 
     
 
@@ -316,6 +338,9 @@ public class Order extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSpinner spnAmount;
     private javax.swing.JTable tblOrder;

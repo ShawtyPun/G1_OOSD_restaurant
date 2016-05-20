@@ -74,6 +74,8 @@ public class Reservation extends javax.swing.JFrame {
         btnReset = new javax.swing.JButton();
         btnShow = new javax.swing.JButton();
         tfTable = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -81,7 +83,7 @@ public class Reservation extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Impact", 0, 48)); // NOI18N
         jLabel1.setText("RESERVATION");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 32, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 30, -1, -1));
 
         tblReserve.setFont(new java.awt.Font("Thonburi", 0, 12)); // NOI18N
         tblReserve.setModel(new javax.swing.table.DefaultTableModel(
@@ -150,7 +152,7 @@ public class Reservation extends javax.swing.JFrame {
                 btnOrderMouseClicked(evt);
             }
         });
-        getContentPane().add(btnOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 110, -1, -1));
+        getContentPane().add(btnOrder, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 140, -1, -1));
 
         btnBill.setFont(new java.awt.Font("Impact", 0, 40)); // NOI18N
         btnBill.setForeground(java.awt.Color.red);
@@ -160,7 +162,7 @@ public class Reservation extends javax.swing.JFrame {
                 btnBillMouseClicked(evt);
             }
         });
-        getContentPane().add(btnBill, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 209, -1, -1));
+        getContentPane().add(btnBill, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 210, -1, -1));
 
         btnRevenue.setFont(new java.awt.Font("Impact", 0, 40)); // NOI18N
         btnRevenue.setForeground(java.awt.Color.red);
@@ -170,7 +172,7 @@ public class Reservation extends javax.swing.JFrame {
                 btnRevenueMouseClicked(evt);
             }
         });
-        getContentPane().add(btnRevenue, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 316, -1, -1));
+        getContentPane().add(btnRevenue, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 280, -1, -1));
 
         btnReset.setFont(new java.awt.Font("Thonburi", 0, 18)); // NOI18N
         btnReset.setText("RESET!!!");
@@ -179,7 +181,7 @@ public class Reservation extends javax.swing.JFrame {
                 btnResetMouseClicked(evt);
             }
         });
-        getContentPane().add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(663, 6, -1, -1));
+        getContentPane().add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 440, -1, -1));
 
         btnShow.setFont(new java.awt.Font("Thonburi", 0, 18)); // NOI18N
         btnShow.setText("Show all");
@@ -198,6 +200,12 @@ public class Reservation extends javax.swing.JFrame {
             }
         });
         getContentPane().add(tfTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 549, 30, -1));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainrestaurant/view/icon-reservation-black2.png"))); // NOI18N
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, 110, 100));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainrestaurant/view/waiter.gif"))); // NOI18N
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 370, 300, 290));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainrestaurant/view/pastel-teal-canvas-fabric-texture.jpg"))); // NOI18N
         jLabel6.setText("jLabel6");
@@ -339,6 +347,8 @@ public class Reservation extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblReserve;
     private javax.swing.JTextField tfDate;
