@@ -195,7 +195,7 @@ public class Order extends javax.swing.JFrame {
                 btnPopActionPerformed(evt);
             }
         });
-        getContentPane().add(btnPop, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 180, -1, -1));
+        getContentPane().add(btnPop, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 190, -1, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainrestaurant/view/4chef.png"))); // NOI18N
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 480, 320, 130));
