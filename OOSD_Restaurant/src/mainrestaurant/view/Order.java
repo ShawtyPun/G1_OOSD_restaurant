@@ -117,6 +117,7 @@ public class Order extends javax.swing.JFrame {
         });
         getContentPane().add(btnBill, new org.netbeans.lib.awtextra.AbsoluteConstraints(601, 325, -1, -1));
 
+        btnReserve.setBackground(java.awt.Color.black);
         btnReserve.setFont(new java.awt.Font("Impact", 0, 40)); // NOI18N
         btnReserve.setForeground(java.awt.Color.red);
         btnReserve.setText("RESERVATION");
@@ -125,7 +126,12 @@ public class Order extends javax.swing.JFrame {
                 btnReserveMouseClicked(evt);
             }
         });
-        getContentPane().add(btnReserve, new org.netbeans.lib.awtextra.AbsoluteConstraints(507, 412, -1, -1));
+        btnReserve.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReserveActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnReserve, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 410, -1, -1));
 
         btnRevenue.setFont(new java.awt.Font("Impact", 0, 40)); // NOI18N
         btnRevenue.setForeground(java.awt.Color.red);
@@ -203,7 +209,7 @@ public class Order extends javax.swing.JFrame {
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainrestaurant/view/NN.png"))); // NOI18N
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, 120, 110));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainrestaurant/view/pastel-teal-canvas-fabric-texture.jpg"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainrestaurant/view/BackgroundCookingFood.png"))); // NOI18N
         jLabel5.setText("jLabel5");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -10, 840, 620));
 
@@ -271,6 +277,10 @@ public class Order extends javax.swing.JFrame {
     private void btnPopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPopActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnPopActionPerformed
+
+    private void btnReserveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReserveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnReserveActionPerformed
 
     
 
