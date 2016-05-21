@@ -72,6 +72,7 @@ public class Order extends javax.swing.JFrame {
         btnSubmit = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         cbbTable = new javax.swing.JComboBox();
+        jLabel9 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         btnPop = new javax.swing.JButton();
@@ -175,6 +176,9 @@ public class Order extends javax.swing.JFrame {
         cbbTable.setFont(new java.awt.Font("Thonburi", 0, 18)); // NOI18N
         cbbTable.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
         getContentPane().add(cbbTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 437, -1, -1));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainrestaurant/view/cheff.png"))); // NOI18N
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 90, 120, 110));
 
         jButton1.setFont(new java.awt.Font("Thonburi", 0, 18)); // NOI18N
         jButton1.setText("Undo");
@@ -351,6 +355,7 @@ public class Order extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSpinner spnAmount;
     private javax.swing.JTable tblOrder;
