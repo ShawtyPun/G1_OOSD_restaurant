@@ -115,21 +115,21 @@ public class Reservation extends javax.swing.JFrame {
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 490, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
-        jLabel4.setText("Date and Time:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 450, -1, -1));
+        jLabel4.setText("Date :");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 450, -1, -1));
 
         tfName.setFont(new java.awt.Font("Thonburi", 0, 18)); // NOI18N
-        getContentPane().add(tfName, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 402, 92, -1));
+        getContentPane().add(tfName, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 402, 130, -1));
 
         tfDate.setFont(new java.awt.Font("Thonburi", 0, 18)); // NOI18N
-        getContentPane().add(tfDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 444, 92, -1));
+        getContentPane().add(tfDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 444, 130, -1));
         DateFormat dateFormat = new SimpleDateFormat("YYYY-MM-dd");
         Date date = new Date(); // get current date
         tfDate.setText(dateFormat.format(date) + "");
 
         tfTime.setFont(new java.awt.Font("Thonburi", 0, 18)); // NOI18N
         tfTime.setText("00:00:00");
-        getContentPane().add(tfTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 484, -1, -1));
+        getContentPane().add(tfTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 484, 100, -1));
 
         jLabel5.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
         jLabel5.setText("PeopleNum :");
@@ -142,7 +142,7 @@ public class Reservation extends javax.swing.JFrame {
                 btnSubmitMouseClicked(evt);
             }
         });
-        getContentPane().add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(141, 591, -1, -1));
+        getContentPane().add(btnSubmit, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 600, -1, -1));
 
         btnOrder.setFont(new java.awt.Font("Impact", 0, 40)); // NOI18N
         btnOrder.setForeground(java.awt.Color.red);
@@ -186,7 +186,7 @@ public class Reservation extends javax.swing.JFrame {
                 btnResetMouseClicked(evt);
             }
         });
-        getContentPane().add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 440, -1, -1));
+        getContentPane().add(btnReset, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 10, -1, -1));
 
         btnShow.setFont(new java.awt.Font("Thonburi", 0, 18)); // NOI18N
         btnShow.setText("Show all");
@@ -204,7 +204,7 @@ public class Reservation extends javax.swing.JFrame {
                 tfTableActionPerformed(evt);
             }
         });
-        getContentPane().add(tfTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 549, 30, -1));
+        getContentPane().add(tfTable, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 549, 40, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainrestaurant/view/icon-reservation-black2.png"))); // NOI18N
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, 110, 100));
