@@ -62,6 +62,7 @@ public class Revenue extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblRevenue = new javax.swing.JTable();
         btnShowAll = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         lbTotal = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -143,6 +144,9 @@ public class Revenue extends javax.swing.JFrame {
         });
         getContentPane().add(btnShowAll, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 540, -1, -1));
 
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainrestaurant/view/revenue-icon.png"))); // NOI18N
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 60, 120, 130));
+
         jLabel3.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
         jLabel3.setText("Total :");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 540, -1, -1));
@@ -172,7 +176,7 @@ public class Revenue extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainrestaurant/view/BackgroundCookingFoodRevenue.png"))); // NOI18N
         jLabel2.setText("jLabel2");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-5, -4, 790, 610));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-5, -4, 780, 610));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -290,6 +294,7 @@ public class Revenue extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbTotal;
