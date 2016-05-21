@@ -170,7 +170,7 @@ public class Revenue extends javax.swing.JFrame {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainrestaurant/view/4chef.png"))); // NOI18N
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 480, 320, 130));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainrestaurant/view/pastel-teal-canvas-fabric-texture.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainrestaurant/view/BackgroundCookingFoodRevenue.png"))); // NOI18N
         jLabel2.setText("jLabel2");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-5, -4, 790, 610));
 
