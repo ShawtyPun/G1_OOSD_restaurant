@@ -162,6 +162,11 @@ public class Reservation extends javax.swing.JFrame {
                 btnBillMouseClicked(evt);
             }
         });
+        btnBill.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBillActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnBill, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 210, -1, -1));
 
         btnRevenue.setFont(new java.awt.Font("Impact", 0, 40)); // NOI18N
@@ -282,6 +287,10 @@ public class Reservation extends javax.swing.JFrame {
     private void tfTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfTableActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfTableActionPerformed
+
+    private void btnBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBillActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBillActionPerformed
 
     private void setTableSize() {
         tblReserve.getColumnModel().getColumn(0).setPreferredWidth(3);
