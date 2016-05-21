@@ -204,7 +204,7 @@ public class Reservation extends javax.swing.JFrame {
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainrestaurant/view/icon-reservation-black2.png"))); // NOI18N
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, 110, 100));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainrestaurant/view/waiter.gif"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainrestaurant/view/waiter.png"))); // NOI18N
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 370, 300, 290));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainrestaurant/view/pastel-teal-canvas-fabric-texture.jpg"))); // NOI18N
