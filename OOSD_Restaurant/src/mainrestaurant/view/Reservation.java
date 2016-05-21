@@ -205,11 +205,11 @@ public class Reservation extends javax.swing.JFrame {
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, 110, 100));
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainrestaurant/view/waiter.png"))); // NOI18N
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 370, 300, 290));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 360, 300, 290));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainrestaurant/view/pastel-teal-canvas-fabric-texture.jpg"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainrestaurant/view/BackgroundCookingFoodReservation.png"))); // NOI18N
         jLabel6.setText("jLabel6");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -10, 810, 670));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -10, 800, 670));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
