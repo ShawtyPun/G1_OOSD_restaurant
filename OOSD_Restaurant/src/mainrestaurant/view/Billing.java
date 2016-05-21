@@ -63,6 +63,7 @@ public class Billing extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblBill = new javax.swing.JTable();
+        jLabel9 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         lbTotal = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -113,6 +114,9 @@ public class Billing extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblBill);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, 470, 350));
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/mainrestaurant/view/orderS.png"))); // NOI18N
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, 120, 110));
 
         jLabel3.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
         jLabel3.setText("Total :");
@@ -291,6 +295,7 @@ public class Billing extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbTotal;
     private javax.swing.JTable tblBill;
