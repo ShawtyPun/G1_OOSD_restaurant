@@ -153,7 +153,7 @@ public class Order extends javax.swing.JFrame {
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 336, -1, -1));
 
         spnAmount.setFont(new java.awt.Font("Thonburi", 0, 18)); // NOI18N
-        spnAmount.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+        spnAmount.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
         getContentPane().add(spnAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(103, 383, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
